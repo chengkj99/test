@@ -1,0 +1,183 @@
+{
+    "code": 200,
+    "data": {
+        "is_admin": false,
+        "permissions": [
+            {
+                "id": "595368c243c8ce28cf0000af",
+                "prefix": "cdnboss",
+                "type": 1,
+                "rule": "GET:/.*",
+                "name": "cdnboss全部GET",
+                "alias": "cdnboss-all-get",
+                "auto_apply": false,
+                "allow_all": false,
+                "status": 1,
+                "created_at": "2017-06-28T16:28:50.795+08:00",
+                "updated_at": "2017-06-28T16:35:45.418+08:00"
+            },
+            {
+                "id": "59536a9143c8ce28cf0000b8",
+                "prefix": "cdnboss",
+                "type": 1,
+                "rule": "POST:/.*",
+                "name": "cdnboss全部POST",
+                "alias": "cdnboss-all-post",
+                "auto_apply": false,
+                "allow_all": false,
+                "status": 1,
+                "created_at": "2017-06-28T16:36:33.912+08:00",
+                "updated_at": "2017-06-28T16:36:33.912+08:00"
+            },
+            {
+                "id": "59536c6643c8ce28cf0000c5",
+                "prefix": "cdnboss",
+                "type": 1,
+                "rule": "PUT:/.*",
+                "name": "cdnboss全部PUT",
+                "alias": "cdnboss-all-put",
+                "auto_apply": false,
+                "allow_all": false,
+                "status": 1,
+                "created_at": "2017-06-28T16:44:22.416+08:00",
+                "updated_at": "2017-06-28T16:44:22.416+08:00"
+            },
+            {
+                "id": "59536c8543c8ce28cf0000c8",
+                "prefix": "cdnboss",
+                "type": 1,
+                "rule": "DELETE:/.*",
+                "name": "cdnboss全部DELETE",
+                "alias": "cdnboss-all-delete",
+                "auto_apply": false,
+                "allow_all": false,
+                "status": 1,
+                "created_at": "2017-06-28T16:44:53.231+08:00",
+                "updated_at": "2017-06-28T16:44:53.231+08:00"
+            },
+            {
+                "id": "59536f7c43c8ce28cf0000e9",
+                "prefix": "cdnboss",
+                "type": 2,
+                "rule": "pm",
+                "name": "cdnboss平台管理",
+                "alias": "pm",
+                "auto_apply": false,
+                "allow_all": false,
+                "status": 1,
+                "created_at": "2017-06-28T16:57:32.247+08:00",
+                "updated_at": "2017-06-28T17:05:06.594+08:00"
+            },
+            {
+                "id": "59536f9443c8ce28cf0000ec",
+                "prefix": "cdnboss",
+                "type": 2,
+                "rule": "gim",
+                "name": "cdnboss缓存组ip管理",
+                "alias": "gim",
+                "auto_apply": false,
+                "allow_all": false,
+                "status": 1,
+                "created_at": "2017-06-28T16:57:56.283+08:00",
+                "updated_at": "2017-06-28T17:05:14.599+08:00"
+            }
+        ]
+    }
+}
+
+const MockPermissions = {
+  'is_admin': false,
+  'permissions': [
+    {
+      'id': '595368c243c8ce28cf0000af',
+      'prefix': 'cdnboss',
+      'type': 1,
+      'rule': 'GET:/.*',
+      'name': 'cdnboss全部GET',
+      'alias': 'cdnboss-all-get',
+      'auto_apply': false,
+      'allow_all': false,
+      'status': 1,
+      'created_at': '2017-06-28T16:28:50.795+08:00',
+      'updated_at': '2017-06-28T16:35:45.418+08:00'
+    },
+    {
+      'id': '59536a9143c8ce28cf0000b8',
+      'prefix': 'cdnboss',
+      'type': 1,
+      'rule': 'POST:/.*',
+      'name': 'cdnboss全部POST',
+      'alias': 'cdnboss-all-post',
+      'auto_apply': false,
+      'allow_all': false,
+      'status': 1,
+      'created_at': '2017-06-28T16:36:33.912+08:00',
+      'updated_at': '2017-06-28T16:36:33.912+08:00'
+    },
+    {
+      'id': '59536c6643c8ce28cf0000c5',
+      'prefix': 'cdnboss',
+      'type': 1,
+      'rule': 'PUT:/.*',
+      'name': 'cdnboss全部PUT',
+      'alias': 'cdnboss-all-put',
+      'auto_apply': false,
+      'allow_all': false,
+      'status': 1,
+      'created_at': '2017-06-28T16:44:22.416+08:00',
+      'updated_at': '2017-06-28T16:44:22.416+08:00'
+    },
+    {
+      'id': '59536c8543c8ce28cf0000c8',
+      'prefix': 'cdnboss',
+      'type': 1,
+      'rule': 'DELETE:/.*',
+      'name': 'cdnboss全部DELETE',
+      'alias': 'cdnboss-all-delete',
+      'auto_apply': false,
+      'allow_all': false,
+      'status': 1,
+      'created_at': '2017-06-28T16:44:53.231+08:00',
+      'updated_at': '2017-06-28T16:44:53.231+08:00'
+    },
+    {
+      'id': '59536f7c43c8ce28cf0000e9',
+      'prefix': 'cdnboss',
+      'type': 2,
+      'rule': 'qcm',
+      'name': 'cdnboss配置管理',
+      'alias': 'qcm',
+      'auto_apply': false,
+      'allow_all': false,
+      'status': 1,
+      'created_at': '2017-06-28T16:57:32.247+08:00',
+      'updated_at': '2017-06-29T13:28:56.253+08:00'
+    },
+    {
+      'id': '59536f9443c8ce28cf0000ec',
+      'prefix': 'cdnboss',
+      'type': 2,
+      'rule': 'gim',
+      'name': 'cdnboss缓存组ip管理',
+      'alias': 'gim',
+      'auto_apply': false,
+      'allow_all': false,
+      'status': 1,
+      'created_at': '2017-06-28T16:57:56.283+08:00',
+      'updated_at': '2017-06-28T17:05:14.599+08:00'
+    },
+    {
+      'id': '59549b1c43c8ce1bb000002e',
+      'prefix': 'cdnboss',
+      'type': 2,
+      'rule': 'dnsph',
+      'name': 'cdnbossDNS预热管理',
+      'alias': 'dnsph',
+      'auto_apply': false,
+      'allow_all': false,
+      'status': 1,
+      'created_at': '2017-06-29T14:15:56.857+08:00',
+      'updated_at': '2017-06-29T14:15:56.857+08:00'
+    }
+  ]
+}

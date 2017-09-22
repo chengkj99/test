@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <Iframe src="www.baidu.com" width="x" height="x" scrolling="[OPTION]" frameborder="x" name="main"></iframe> 
+  </head>
+  <body>
+
+  </body>
+  <script>
+  function request () {
+    var xhr = new XMLHttpRequest();
+    console.log('xhr:',xhr)
+  }
+
+
+  function XHR() {
+    if (typeof XMLHttpRequest != 'undefined') {
+      return new XMLHttpRequest()
+    }else if (typeof ActiveXObject != 'undiefined'){
+      if(arguments.callee.ActiveXString != 'string'){
+        var vesion=['MSXML2.XMLHttp.6.0','MSXML2.XMLHttp.3.0','MSXML2.XMLHttp']
+        var i, len
+        for (var i = 0 , len = vesion.length; i < len; i++) {
+          try{
+            new ActiveXObject(vesion[i])
+            arguments.callee.ActiveXString=vesion[i]
+            break
+          }catch (error){
+            //跳过
+            console.log(error);
+          }
+        }
+        return new ActiveXObject(arguments.callee.ActiveXString)
+      }
+    }else{
+      throw new error('No XHR Object available!')
+    }
+  }
+  var xhr2=XHR();
+  console.log('xhr2:',xhr2);
+  request();
+  </script>
+</html>

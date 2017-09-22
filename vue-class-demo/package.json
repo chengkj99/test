@@ -1,0 +1,18 @@
+{
+  "name": "vue-class-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "css-loader": "^0.28.7",
+    "vue": "^2.4.3",
+    "vue-loader": "^13.0.4",
+    "vue-template-compiler": "^2.4.3",
+    "webpack": "^3.5.6"
+  },
+  "scripts": {
+    "start": "webpack --config build/webpack.config.js --progress"
+  }
+}

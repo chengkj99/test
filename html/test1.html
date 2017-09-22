@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+    </title>
+    <style>
+      #Ahref {
+        width: 100px;
+        color: red;
+      }
+      a {
+        font-size: 18px;
+        line-height: 18px;
+        height: 18px;
+        width: auto;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="Ahref">
+      <a href="#t1" target="_self">t111</a>
+    </div>
+    <script type="text/javascript">
+    debugger;
+    doWork( () => {
+      console.log('call me when done');
+    })
+
+    function doWork(cb){
+       setTimeout( () => {
+         cb();
+       }, 3000)
+    }
+    </script>
+  </body>
+</html>

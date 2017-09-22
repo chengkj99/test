@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!-- 序列化 form表单的数据-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form class="" id="form1" >
+      <input type="text" name="name" value="chengkangjian">
+      <input type="text" name="pwd" value="kangjian51211">
+    </form>
+    <div id="results"></div>
+
+  </body>
+<script src="./jquery.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    var form1=document.getElementById('form1')
+    var formdata = new FormData(form1);
+    console.log('form1:',form1);
+    console.log('formdata:',formdata);
+    console.log('$(#form1):',$('#form1').serializeArray())
+
+    var jsonTest={name:'abc',value:'456'};
+
+    var obj={};
+    x=$('#form1').serializeArray();
+   $.each(x, function(i, field){
+     obj[field.name]=field.value;
+     $("#results").append( field.name + ":" + field.value + " " );
+   });
+   console.log(obj)
+  </script>
+</html>

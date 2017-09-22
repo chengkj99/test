@@ -1,0 +1,76 @@
+{
+  "code": 200,
+  "data": [
+    {
+      "chname": "cdnadmin.test",
+      "comment": "cdnadmin",
+      "id": 1,
+      "name": "cdnadmin.test.qnydns.com",
+      "platform_id": 1,
+      "view_list": [
+        {
+          "id": 35,
+          "parent_id": 10,
+          "view": "河北联通",
+          "view_level": 3,
+          "vip_count": 2,
+          "group_record_list": [
+            {
+              "vip_count": 2,
+              "record_info": {
+                "final_status": "auto_online",
+                "group_status": "online",
+                "record_id": 28,
+                "status": "online",
+                "ttl": 139,
+                "use_type": "self_use",
+                "weight": 0,
+              },
+              "group_info": {
+                "id": 16,
+                "name": "cnc-hbts-ts",
+                "chname": "唐山联通-10G（接信安设备）",
+                "pop_id": 0,
+                "platform_id": 1,
+                "role": "cluster",
+                "service_status": "online",
+                "final_status": "online",
+                "comment": "",
+                "vip_list": [
+                  {
+                    "id": 31,
+                    "ip": "60.2.148.206",
+                    "group_id": 16,
+                    "mode": "auto",
+                    "final_status": "online",
+                    "monitor_status": "online",
+                    "monitor_update_time": 0,
+                    "is_in_monitor": true,
+                    "comment": ""
+                  },
+                  {
+                    "id": 32,
+                    "ip": "60.2.148.207",
+                    "group_id": 16,
+                    "mode": "auto",
+                    "final_status": "online",
+                    "monitor_status": "online",
+                    "monitor_update_time": 0,
+                    "is_in_monitor": true,
+                    "comment": ""
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+
+{
+  "group":{"service_status": "all", "final_status": "all", "role": "all", "platform_id": 0},
+  "vip": {"mode": "all", "monitor_status": "all", "final_status": "all"}
+}

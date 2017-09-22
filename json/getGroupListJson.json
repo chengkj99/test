@@ -1,0 +1,31 @@
+{
+  "code": 200,
+  "data": [
+    {
+     "id": 1,
+     "name": "cnc-gddg-dg",
+     "chname": "东莞联通-10G",
+     "platform_id": 1,
+     "role": "cluster",
+     "final_status": "online",
+   },
+   {
+     "id": 2,
+     "name": "tel-gzfs-pz",
+     "chname": "佛山平洲-20G",
+     "platform_id": 1,
+     "role": "cluster",
+     "service_status": "online",
+     "final_status": "online",
+   },
+   {
+     "id": 3,
+     "name": "mob-gdgz-gz",
+     "chname": "广州南方基地-10G",
+     "platform_id": 1,
+     "role": "cluster",
+     "service_status": "online",
+     "final_status": "online",
+   }
+ ]
+}
