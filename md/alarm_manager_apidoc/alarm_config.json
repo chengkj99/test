@@ -1,0 +1,76 @@
+[
+  {
+    "SystemName": "fcm",
+    "SystemID": 1,
+    "Metric": [
+      {
+        "MetricName": "view_aliverate",
+        "Id": 1,
+        "Describe": "",
+        "UserGroup": ["fusion-sre", "fcm"],
+        "Rule": [
+          {
+            "MonitorUrl": "^.*..com.*$",
+            "Minute": "20",
+            "Times": 10,
+            "Type": 3
+          },
+          {
+            "MonitorUrl": "^.*..com.*$",
+            "Minute": "20",
+            "Times": 10,
+            "Type": 3
+          }
+        ]
+      },
+      ...
+    ]
+  }
+]
+
+{
+  "Describe": "",
+  "SystemName": ""
+}
+
+{
+  "SystemName": "",
+  "MetricName": "",
+  "UserGroup": ["fusion-sre", "fcm"],
+  "Describe": ""
+}
+
+
+{
+  "Endpoint":"qqqqq",
+  "Metric":"auth_dns_node",
+  "Period":["360"],
+  "SystemName":"fcm",
+  "TargetLevel":["2"],
+  "Type":1,
+  "Value":[]
+}
+--------------
+{
+  "Mail":"qqq@11.com",
+  "Name":"qqq",
+  "Phone":"18508772828",
+  "UserGroup": ["fusion-sre", "fcm"]
+}
+
+{
+  "Id":1,
+  "Mail":"wanglei3@qiniu.com",
+  "Name":"wanglei3",
+  "Phone":"18500499977"
+}
+[
+  {
+    "Describe":"",
+    "Id":1,
+    "Name":"fcm",
+    "Mail": "fcm@qiniu.com"
+  }
+]
+
+---------------------------------

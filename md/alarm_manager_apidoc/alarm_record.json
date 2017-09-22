@@ -1,0 +1,32 @@
+{
+  "SystemName": "fcm",
+  "MetricName": "view_aliverate",
+  "Endpoint": "^.*..com.*$",
+  "Minlevel": 3,
+  "Date": ""
+}
+[
+  {
+    "Id": 1,
+    "Title": "",
+    "SystemName": "fcm",
+    "MetricName": "view_aliverate",
+    "Endpoint": "^.*..com.*$",
+    "Level": 3,
+    "AlarmContent": "",
+    "BaseValue": "",
+    "FirstReportTime": "",
+    "LastReportTime": "",
+    "Value": "",
+    "SubEndpoint": ""
+  }
+  ...
+]
+
+{
+  "Endpoint":"https://storedl-nearme.qnssl.com/do_not_delete/717",
+  "Metric":"node_aliverate",
+  "Period":"",
+  "Reason":"",
+  "SystemName":"fcm"
+}
