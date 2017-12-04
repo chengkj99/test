@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  </body>
+
+  <script type="text/javascript">
+  // (function(){    
+    // console.log('memory..', window.performance.memory)
+    // memory反应的是浏览器内存情况
+    // jsHeapSizeLimit:2190000000
+    // totalJSHeapSize:10000000
+    // usedJSHeapSize:10000000
+
+    // console.log('navigation..', window.performance.navigation)
+    // performance.navigation.type  
+    // 0：网页通过点击链接、地址栏输入、表单提交、脚本操作等方式加载，相当于常数performance.navigation.TYPE_NAVIGATENEXT。
+    // 1：网页通过“重新加载”按钮或者location.reload()方法加载，相当于常数performance.navigation.TYPE_RELOAD。
+    // 2：网页通过“前进”或“后退”按钮加载，相当于常数performance.navigation.TYPE_BACK_FORWARD。
+    // 255：任何其他来源的加载，相当于常数performance.navigation.TYPE_UNDEFINED。
+    // performance.navigation.redirectCount： 属性表示当前网页经过了多少次重定向跳转。
+
+    // window.performance.timing NEXT
+  // })();
+  
+  function test(){
+    var arr = []
+    for(var i = 0; i < 80000; i++) {
+      arr.push('nihaoshivubjndksbfkjsabfdbajfjsdjsajkjksabhjbhj')
+    }
+    console.log(window.performance)    
+    // console.log('memory..', window.performance.memory)
+    // console.log('navigation..', window.performance.navigation)
+    // console.log('timing..', window.performance.timing)
+    var t = window.performance.timing;
+    var pageloadtime = t.loadEventStart - t.navigationStart;
+    var dns = t.domainLookupEnd - t.domainLookupStart;
+    var tcp = t.connectEnd - t.connectStart;
+    var ttfb = t.responseStart - t.navigationStart;
+    var dcdl = t.domComplete - t.domLoading;
+    var bp = t.domLoading - t.fetchStart;
+    console.log('距离浏览器开始处理当前网页，已经过了:', Date.now() - window.performance.timing.navigationStart + '毫秒')
+    console.log('页面加载的耗时:', pageloadtime + '毫秒:' + t.loadEventStart + '-' + t.navigationStart)
+    console.log('域名解析的耗时:', dns + '毫秒')
+    console.log('TCP连接的耗时:', tcp + '毫秒')
+    console.log('读取页面第一个字节之前的耗时:', ttfb + '毫秒')
+    console.log('dom解析完成:', dcdl + '毫秒')
+    console.log('白屏时间:', bp + '毫秒')
+  }
+  setTimeout(test, 4000);
+  </script>
+</html>

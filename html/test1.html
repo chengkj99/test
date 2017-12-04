@@ -23,16 +23,29 @@
       <a href="#t1" target="_self">t111</a>
     </div>
     <script type="text/javascript">
-    debugger;
-    doWork( () => {
-      console.log('call me when done');
-    })
-
-    function doWork(cb){
-       setTimeout( () => {
-         cb();
-       }, 3000)
-    }
+		var oldLoad = window.onload;
+		window.onload = function(){
+			oldLoad && oldLoad();
+			setTimeout(function(){
+				try{
+					var loadStatusArr = window.performance.getEntries() || [];
+					console.log("send data statt", loadStatusArr.length);
+					for (var i = 0; i < loadStatusArr.length; i++) {
+						if(loadStatusArr[i].transferSize && loadStatusArr[i].transferSize != 0){
+							console.log("abc", predem, window.predem);
+							window.predem && window.predem.sendCustomEventData("testEventJson",loadStatusArr[i]);
+						}
+					}
+				}catch(e){}
+				
+			},2000);
+		};
+		// performance.onresourcetimingbufferfull = performance.onwebkitresourcetimingbufferfull = function(){
+		// 	var loadStatusArr = window.performance.getEntries() || [];
+		// 	for (var i = 0; i < loadStatusArr.length; i++) {
+		// 		predem.sendCustomEventData("testEventJson",loadStatusArr[i]);
+		// 	}
+		// }
     </script>
   </body>
 </html>
