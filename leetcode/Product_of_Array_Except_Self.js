@@ -33,8 +33,6 @@ function productExceptSelf(nums) {
 
 }
 
-
-
 (function(){
   let nums = [1,2,3,4]
   console.log(productExceptSelf(nums));

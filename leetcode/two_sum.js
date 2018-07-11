@@ -38,6 +38,3 @@ function twoSum (nums,target) {
   let target = 8
   console.log(twoSum(array,target))
 })()
-
-
-// ❌❌❌
