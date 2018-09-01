@@ -1,0 +1,98 @@
+/*
+ * 垂直居中:
+ * 1. 已知高度：height, line-height
+ * 2. 已知或未知高度都可以：absolate top 50% + 1/2负边距（transform: translate(-50%, -50%);）
+ * 3. 未知高度：inline, table-cell + vertical-align
+ * 4. 已知或未知高度都可以：float 50% + 1/2负边距 （transform: translate(-50%, -50%);）
+ * 5. flex
+ */
+
+ /*
+  * 水平居中
+  * 1. 行内元素：text-align: center
+  * 2. absolate left 50% + 1/2负边距
+  * 3. 块级元素：定宽盒子 + magrin 0 auto
+  * 4. 多个块级元素：text-align:center + display:inline-block;
+  * 5. flex
+  */
+
+
+.container {
+  position: relative;
+  height: 500px;
+  margin: 10px 0;
+  background-color: darkcyan;
+}
+.block {
+  border: 1px solid #ccc;
+  text-align: center;
+  height: 100px;
+  line-height: 100px
+}
+
+/* 垂直居中-1，这种方式如果发生换行就恶心了 */
+.box-vertical-1 {
+  height: 500px;
+  line-height: 500px;
+}
+
+/* 垂直居中-2 */
+.container-2 {
+  display: table;
+  height: 300px;
+}
+.box-vertical-2 {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* 垂直居中-3 */
+.container-3 {
+  position: relative;
+}
+
+.floater {
+  float: left;
+  height: 50%;
+  margin-bottom: -50px;
+}
+.box-vertical-3 {
+  clear: both;
+}
+
+/* 水平垂直居中 */
+.box-vertical-n1 {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+
+  top: 50%;
+  /* margin-top: -50px; */
+
+  left: 50%;
+  /* margin-left: -50px; */
+
+  line-height: 100px;
+
+  /* 在不知道高和宽的时候可以使用下面 */
+  transform: translate(-50%, -50%);
+}
+
+/* 水平垂直居中 */
+.box-vertical-n2 {
+  /* 水平 */
+  width: 200px;
+  margin: 0 auto;
+  /* 垂直 */
+  clear:both;
+}
+
+
+/* flex 水平垂直居中 */
+.container-nn {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.box-vertical-nn {}
