@@ -59,7 +59,8 @@
 * 安全相关的字段, refer 代表请求源
 * 各种状态码的含义, 200 404 304 500 502 504
 * Content-Type
-*
+* Content-Encoding
+* ...
 
 #### Web 安全
 
@@ -85,3 +86,6 @@
   避免使用 CSS 表达式
 
 #### 语言框架 vue.js
+
+* vue.js 基本原理，defineProperty
+* 如何设计组件
