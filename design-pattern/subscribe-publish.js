@@ -1,21 +1,21 @@
 // 发布订阅模式 - 自定义事件
 
-// const publisher = {}
-// publisher.clientList = []
-// publisher.listen = function(fn) {
+// const event = {}
+// event.clientList = []
+// event.listen = function(fn) {
 //   this.clientList.push(fn)
 // }
-// publisher.trigger = function() {
+// event.trigger = function() {
 //   for (let i = 0, fn; fn = this.clientList[i++];) {
 //     fn.apply(this, arguments)
 //   }
 // }
 
-// publisher.listen(function(age) {
+// event.listen(function(age) {
 //   console.log('My name is xiaoming', 'My age is ' + age)
 // })
 
-// publisher.listen(function(age) {
+// event.listen(function(age) {
 //   console.log('My name is xiaohong', 'My age is ' + age)
 // })
 
