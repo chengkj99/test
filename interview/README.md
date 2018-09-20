@@ -20,14 +20,11 @@
 * z-index 优缺点
 * ...
 
-### 其他
-* 重排和重绘
 
 ## JS
 
 #### 编程题
 
-* 找出字符串中出现最多的字符和次数
 * 实现一个对象的深Copy ok
 ```
   function deepClone(obj) {
@@ -95,7 +92,6 @@
 ```
 
 * 二叉树的镜像复制
-* 二叉树最优路径求解
 
 
 * 二分查找一个值
@@ -276,13 +272,11 @@ Function.prototype.bind = context => {
 
 * 封装 ajax 请求
 ```
-  document.getElementById('wrapper').addEventListener('click', function(e) {
-    if (e.target.nodeName.toLocalLowerCase === 'li') {
-      console.log('target.innerHtml', target.innerHTML)
-    }
-  })
+
+
 ```
 * class 的实现原理
+
 * 事件委托
 ```
 document.getElementById('wrapper').addEventListener('click', function(e) {
@@ -291,9 +285,6 @@ document.getElementById('wrapper').addEventListener('click', function(e) {
   }
 })
 ```
-
-* 各种排序排法
-* 链表
 * ...
 
 #### JS 基础
@@ -302,52 +293,10 @@ document.getElementById('wrapper').addEventListener('click', function(e) {
 * 闭包相关
 * defineProperty
 * new 一个对象的过程
-```
-let foo = new Foo()
-<!-- new 过程 -->
-let o = new Object()
-let Con = [].shift.call(arguments)
-o._proto_ = Con.prototype
-return Con.apply(o, arguments)
-```
 * 实现 JS 继承，有哪些继承方式
 * 设计模式
-* 装饰器
-* 跨域字段
-* JS模块化(AMD, CMD)
-* Class 的实现
-* 垃圾回收机制
-* 防抖
-```
-  function debounce(func, wait) {
-    let timer = 0
-    return function(...args) {
-      if (timer) clearTimeout(timer)
-      timer = setTimeout(() => {
-        func.apply(this, args)
-      }, wait)
-    }
-  }
-```
-* 函数节流
-```
-function throttle(method, context) {
-  clearTimeout(method.id)
-  method.id = setTimeout(function() {
-    method.apply(context, arguments)
-  }, 500)
-}
-function throttle(method, wait) {
-  let timer = 0
-  return function() {
-    let context = this, args = arguments
-    clearTimeout(timer)
-    timer = setTimeout(() => {
-      method.apply(context, args)
-    }, wait)
-  }
-}
-```
+* 路由原理
+* 构造函数的this
 * ...
 
 #### HTTP 相关
@@ -388,24 +337,9 @@ function throttle(method, wait) {
 4. 代码优化
   避免使用 CSS 表达式
 
-#### 语言框架 vue.js
+#### 语言框架 vue.js & react.js
 
-* vue 双向绑定原理
-* vue 渲染原理
-* vue 观察者模式
-* vue defineProperty
-* vue
-* ...
-
-### webpack
-
-* 如何构建多页应用
-* loader 和 plugin 的区别
-* 首页加载慢的问题如何解决
-* 代码分割是啥
-* poctcss
-* ...
-
-### 网络
-
-* OSI 七层协议模型
+* vue.js 原理
+* webpack 懒加载
+* 单页应用和多页应用
+* 服务端渲染
