@@ -272,13 +272,11 @@ Function.prototype.bind = context => {
 
 * 封装 ajax 请求
 ```
-  document.getElementById('wrapper').addEventListener('click', function(e) {
-    if (e.target.nodeName.toLocalLowerCase === 'li') {
-      console.log('target.innerHtml', target.innerHTML)
-    }
-  })
+
+
 ```
 * class 的实现原理
+
 * 事件委托
 ```
 document.getElementById('wrapper').addEventListener('click', function(e) {
