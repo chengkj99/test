@@ -295,6 +295,8 @@ document.getElementById('wrapper').addEventListener('click', function(e) {
 * new 一个对象的过程
 * 实现 JS 继承，有哪些继承方式
 * 设计模式
+* 路由原理
+* 构造函数的this
 * ...
 
 #### HTTP 相关
@@ -335,7 +337,14 @@ document.getElementById('wrapper').addEventListener('click', function(e) {
 4. 代码优化
   避免使用 CSS 表达式
 
-#### 语言框架 vue.js
+#### 语言框架 vue.js & react.js
 
 * vue.js 原理
-*
+* webpack 懒加载
+* 单页应用和多页应用
+* 服务端渲染
+* 路由原理
+* webpack 单页应用和多页应用
+* 服务端渲染
+* 单页应用的问题：首屏加载慢。如何解决？多页应用 或 服务端渲染
+* ...
