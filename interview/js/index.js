@@ -1,18 +1,18 @@
 
 // // this 相关
 
-// (function(){
-//   var a = 100
-//   function f1() {
-//     var a = 200
-//     return function () {
-//       console.log('f1', a)
-//     }
-//   }
-//   var fn = f1()
-//   fn() // 200
-//   // 因为这是闭包，当 return function 时，内部的变量会一直引用 f1 内的 a ，直到内部的函数执行结束。
-// })()
+(function(){
+  var a = 100
+  function f1() {
+    var a = 200
+    return function () {
+      console.log('f1', a)
+    }
+  }
+  var fn = f1()
+  fn() // 200
+  // 因为这是闭包，当 return function 时，内部的变量会一直引用 f1 内的 a ，直到内部的函数执行结束。
+})()
 
 // (function() {
 //   var a = 100

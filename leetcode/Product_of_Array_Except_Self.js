@@ -30,7 +30,6 @@ function productExceptSelf(nums) {
     arrayNew[i] = array1[i] * array2[i]
   }
   return arrayNew
-
 }
 
 (function(){

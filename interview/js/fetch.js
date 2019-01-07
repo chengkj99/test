@@ -1,9 +1,11 @@
 // 封装 ajax 请求
 
-function fetch(method, param) {
+function fetch(method, url) {
   return new Promise((resolve, reject) => {
-    let xhr = new XMLHttpRequest()
-    xhr.open(method, param.url, true)
-
-  })
-}
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, url);
+    xhr.onload = () => resolve(xhr.responseText);
+    xhr.onerror = () => reject(xhr.statusText);
+    xhr.send();
+  });
+};

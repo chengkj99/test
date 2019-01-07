@@ -2,17 +2,16 @@
  * 垂直居中:
  * 1. 已知高度：height, line-height
  * 2. 已知或未知高度都可以：absolate top 50% + 1/2负边距（transform: translate(-50%, -50%);）
+ * 4. 已知或未知高度都可以：float 50% +  1/2负边距 （transform: translate(-50%, -50%);）
  * 3. 未知高度：inline, table-cell + vertical-align
- * 4. 已知或未知高度都可以：float 50% + 1/2负边距 （transform: translate(-50%, -50%);）
  * 5. flex
  */
 
  /*
   * 水平居中
-  * 1. 行内元素：text-align: center
+  * 1. 行内元素：text-align: center; + display:inline-block;
   * 2. absolate left 50% + 1/2负边距
-  * 3. 块级元素：定宽盒子 + magrin 0 auto
-  * 4. 多个块级元素：text-align:center + display:inline-block;
+  * 3. 块级元素：定宽盒子 + magrin 0 auto 
   * 5. flex
   */
 

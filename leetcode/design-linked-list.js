@@ -1,7 +1,7 @@
 /**
  * Initialize your data structure here.
  */
-var MyLinkedList = function(val) {
+var MyLinkedList = function() {
   this.head = null
   this.length = 0
 };

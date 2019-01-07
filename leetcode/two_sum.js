@@ -15,11 +15,11 @@
 
 // 一个数组，选择几个元素相加等于给定的一个目标。返回这些元素组成的数组。
 
-function twoSum (nums,target) {
+function twoSum (nums, target) {
   // 思路：当一个值==目标值的时候，遍历；当两个值等于目标值的时候,当三个值等于目标值的时候...
   let numsNew = []
   if (nums.indexOf(target) > -1) {
-    return numsNew[0] = [nums.indexOf(target) +1 ]
+    return numsNew[0] = [nums.indexOf(target) + 1]
   }
   // target == target - 1 + 1 == target - 2 + 2 == target - 3 +3 == target - N + N
   for (let i = 0; i < nums.length; i++) {
@@ -35,6 +35,6 @@ function twoSum (nums,target) {
 
 (function functionName() {
   let array = [1,2,3,4,5]
-  let target = 8
+  let target = 10
   console.log(twoSum(array,target))
 })()

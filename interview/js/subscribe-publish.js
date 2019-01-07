@@ -1,21 +1,21 @@
-// const event1 = {
-//   clientList: [],
-//   publisher: function() {
-//     for (let i = 0; i < this.clientList.length; i++) {
-//       this.clientList[i].apply(null, arguments)
-//     }
-//   },
-//   listener: function(fn) {
-//     this.clientList.push(fn)
-//   }
-// }
+const event1 = {
+  clientList: [],
+  publisher: function() {
+    for (let i = 0; i < this.clientList.length; i++) {
+      this.clientList[i].apply(null, arguments)
+    }
+  },
+  listener: function(fn) {
+    this.clientList.push(fn)
+  }
+}
 
-// event.listener(val => {
-//   console.log('123', val)
-// })
-// event.listener(val => {
-//   console.log('456', val)
-// })
+event.listener(val => {
+  console.log('123', val)
+})
+event.listener(val => {
+  console.log('456', val)
+})
 
 
 const event2= {

@@ -30,3 +30,27 @@ var levelOrder = function(root) {
   }
   return result
 };
+
+
+// 获取路径数和遍历结果
+function levelOrder2(root, target) {
+  if (!root) {
+    return []
+  }
+  let result = []
+  let queue = root
+  let step = 0
+  while (queue.length > 0) {
+    let newQueue = []
+    step ++
+    for (let item of queue) {
+      result.push(item.value)
+      if (target == item.value) {
+        return ({result: result, step: step})
+      }
+      item.children && newQueue.push(...item.children)
+    }
+    queue = newQueue
+  }
+  return ({result: result, step: step})
+}
