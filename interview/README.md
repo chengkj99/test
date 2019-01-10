@@ -9,6 +9,7 @@
 * 水平垂直居中 ok
 * 三栏式布局 ok
 * flex ok
+* CSS3 animation 和 transition 区别 ok
 
 #### 定位
 
@@ -55,20 +56,20 @@
       return []
     }
     let result = []
-    result.concat(preorderTraversal(root.left))
+    result.concat(inorderTraversal(root.left))
     result.push(root.val)
-    result.concat(preorderTraversal(root.right))
+    result.concat(inorderTraversal(root.right))
     return result
   }
 
 <!-- 后序 -->
-  function preorderTraversal(root) {
+  function postorderTraversal(root) {
     if (!root) {
       return []
     }
     let result = []
-    result.concat(preorderTraversal(root.left))
-    result.concat(preorderTraversal(root.right))
+    result.concat(postorderTraversal(root.left))
+    result.concat(postorderTraversal(root.right))
     result.push(root.val)
     return result
   }
@@ -211,6 +212,8 @@ function promiseAll2(promises) {
   })
 }
 
+* promise 的实现
+
 ```
 * JS 并发控制
 * 遍历对象的所有的keys，有哪些方式，每种方式的优缺点
@@ -272,6 +275,15 @@ Function.prototype.bind = context => {
 
 * 封装 ajax 请求
 ```
+function fetch(method, url) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, url);
+    xhr.onload = () => resolve(xhr.responseText);
+    xhr.onerror = () => reject(xhr.statusText);
+    xhr.send();
+  });
+};
 
 
 ```
