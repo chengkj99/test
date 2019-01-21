@@ -195,3 +195,6 @@ let p = new Person()
 p.say()
 // p.age = 20
 console.log(p.hasOwnProperty('age'), 'age' in p) // false, true
+
+
+

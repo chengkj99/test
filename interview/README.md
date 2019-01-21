@@ -18,7 +18,8 @@
 * float 定位 ok
 * float 和 position 的相互影响
 * 单位：px、em/rem、%、vw/vh、vmax/vmin
-* z-index 优缺点
+* z-index 优缺点 https://www.cnblogs.com/starof/p/4424926.html
+* BFC
 * ...
 
 
@@ -93,7 +94,17 @@
 ```
 
 * 二叉树的镜像复制
+```
+const mirrorTree = tree => {
+  if (!tree) return null
+  let temp = tree.left
+  tree.left = tree.right
+  tree.right = temp
+  mirrorTree(tree.left)
+  mirrorTree(tree.right)
+}
 
+```
 
 * 二分查找一个值
 ```
@@ -284,8 +295,6 @@ function fetch(method, url) {
     xhr.send();
   });
 };
-
-
 ```
 * class 的实现原理
 
@@ -297,6 +306,24 @@ document.getElementById('wrapper').addEventListener('click', function(e) {
   }
 })
 ```
+
+* 高阶组件
+  ```
+    export default function withDemo (Component) {
+      return class HOC extends Component {
+        render() {
+          <div>others</div>
+          <Component {...this.props} />
+
+        }
+      }
+    }
+    export default class Demo extends Component {
+      render() {
+        return (<div></div> )
+      }
+    }
+  ```
 * ...
 
 #### JS 基础
@@ -359,4 +386,6 @@ document.getElementById('wrapper').addEventListener('click', function(e) {
 * webpack 单页应用和多页应用
 * 服务端渲染
 * 单页应用的问题：首屏加载慢。如何解决？多页应用 或 服务端渲染
+* 浏览器组成原理,浏览器的多进程/多线程
+* 
 * ...

@@ -1,0 +1,10 @@
+.wrapper {
+    position: relative;
+    height: 500px;
+}
+.wrapper > div {
+    width: 20vw;
+    height: 20vh;
+    display: inline-block;
+    background-color: #ccc;
+}
