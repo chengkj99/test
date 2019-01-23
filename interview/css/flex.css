@@ -1,0 +1,16 @@
+.wrapper {
+    display: flex;
+    height: 500px;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+.wrapper > div {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    background-color: #ccc;
+    flex: 0 1 auto;
+}
+.wrapper > div:nth-child(2) {
+    background-color: aqua;
+}

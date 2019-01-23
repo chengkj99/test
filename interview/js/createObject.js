@@ -1,4 +1,8 @@
 // 创建对象
+let o = new Object()
+o.proto = A.prototype
+A.call(o)
+return o
 
 // 工厂模式
 
