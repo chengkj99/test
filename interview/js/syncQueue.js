@@ -1,21 +1,18 @@
-function f1(cb) {
+function f1() {
   setTimeout(function() {
     console.log('f1')
-    cb()
   }, 3000)
 }
 
-function f2(cb) {
+function f2() {
   setTimeout(function() {
     console.log('f2')
-    cb()
   }, 1000)
 }
 
-function f3(cb) {
+function f3() {
   setTimeout(function() {
     console.log('f3')
-    cb()
   }, 2000)
 }
 
