@@ -1,0 +1,30 @@
+Arguments: 
+  /Users/chengkj/.nvm/versions/node/v9.2.0/bin/node /usr/local/bin/yarn add babel-preset-env --dev
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Applications/Wireshark.app/Contents/MacOS:/Users/chengkj/.nvm/versions/node/v9.2.0/bin:/Users/chengkj/goSpace/qbox/base/qiniu/bin:/Users/chengkj/goSpace/qbox/base/biz/bin:/Users/chengkj/goSpace/qbox/base/cgo/bin:/Users/chengkj/goSpace/qbox/base/com/bin:/Users/chengkj/goSpace/qbox/base/portal/bin:/Users/chengkj/goSpace/qbox/net-base/bin:/Users/chengkj/goSpace/qbox/net/bin:/Users/chengkj/goSpace/qbox/net-artisan/bin:/Users/chengkj/goSpace/qbox/net-artisan/QiniuANS/src/go/bin:/Users/chengkj/goSpace/qbox/base/mockacc/bin:/Users/chengkj/goSpace/go:/Users/chengkj/code/work/goSpace:/Users/chengkj/code/work/portal-v4/service:/Users/chengkj/goSpace/qbox/base/qiniu:/Users/chengkj/goSpace/qbox/base/account-api:/Users/chengkj/goSpace/qbox/base/docs:/Users/chengkj/goSpace/qbox/base/com:/Users/chengkj/goSpace/qbox/base/biz:/Users/chengkj/goSpace/qbox/base/portal:/Users/chengkj/goSpace/qbox/base/cgo:/Users/chengkj/goSpace/qbox/net-base:/Users/chengkj/goSpace/qbox/net:/Users/chengkj/goSpace/qbox/net-artisan:/Users/chengkj/goSpace/qbox/net-artisan/QiniuANS/src/go:/Users/chengkj/goSpace/qbox/base/mockacc:/Users/chengkj/code/work/fusion-admin/server:/usr/local/opt:/usr/local/lib/node_modules/npm/node_modules/.bin:/Users/chengkj/goSpace/qbox/base/qiniu/bin:/Users/chengkj/goSpace/qbox/base/biz/bin:/Users/chengkj/goSpace/qbox/base/cgo/bin:/Users/chengkj/goSpace/qbox/base/com/bin:/Users/chengkj/goSpace/qbox/base/portal/bin:/Users/chengkj/goSpace/qbox/net-base/bin:/Users/chengkj/goSpace/qbox/net/bin:/Users/chengkj/goSpace/qbox/net-artisan/bin:/Users/chengkj/goSpace/qbox/net-artisan/QiniuANS/src/go/bin:/Users/chengkj/goSpace/qbox/base/mockacc/bin:/Users/chengkj/goSpace/go:/Users/chengkj/code/work/goSpace:/Users/chengkj/code/work/portal-v4/service:/Users/chengkj/goSpace/qbox/base/qiniu:/Users/chengkj/goSpace/qbox/base/account-api:/Users/chengkj/goSpace/qbox/base/docs:/Users/chengkj/goSpace/qbox/base/com:/Users/chengkj/goSpace/qbox/base/biz:/Users/chengkj/goSpace/qbox/base/portal:/Users/chengkj/goSpace/qbox/base/cgo:/Users/chengkj/goSpace/qbox/net-base:/Users/chengkj/goSpace/qbox/net:/Users/chengkj/goSpace/qbox/net-artisan:/Users/chengkj/goSpace/qbox/net-artisan/QiniuANS/src/go:/Users/chengkj/goSpace/qbox/base/mockacc:/Users/chengkj/code/work/fusion-admin/server:/usr/local/go/bin:/usr/local/opt:/usr/local/lib/node_modules/npm/node_modules/.bin
+
+Yarn version: 
+  0.21.3
+
+Node version: 
+  9.2.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "devDependencies": {
+      "babel-cli": "^6.26.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: EEXIST: file already exists, mkdir '/Users/chengkj/code/self/test/ES6-7-8/node_modules/micromatch'
