@@ -76,7 +76,7 @@ var myAtoi = function(str) {
   }
   if (symbol !== 0 && +res !== 0) {
     let symbolRes = symbol * +res
-    if (symbolRes < -Math.pow(2, 31)) {
+    if (symbolRes <= -Math.pow(2, 31)) {
       return -Math.pow(2, 31)
     }
     if (symbolRes >= Math.pow(2, 31)) {
