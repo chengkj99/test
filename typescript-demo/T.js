@@ -13,5 +13,5 @@ function identity2(arg) {
 function identity3(arg) {
     return arg;
 }
-console.log(typeof identity3(3));
-console.log(typeof identity3('3'));
+console.log(typeof identity3(3)); // number
+console.log(typeof identity3('3')); // string

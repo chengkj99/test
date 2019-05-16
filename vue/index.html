@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://sdk-release.qnsdk.com/qiniu-web-player-1.0.0.js"></script>
+</head>
+
+<body>
+  <div id='app'>
+    <div id="player" style="width: 640px; height: 480px;"></div>
+  </div>
+</body>
+
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {},
+    mounted() {
+      new QPlayer({
+        url: "http://demo-videos.qnsdk.com/movies/qiniu.mp4",
+        container: document.getElementById("player"),
+        autoplay: true,
+      })
+    }
+  })
+</script>
+</html>

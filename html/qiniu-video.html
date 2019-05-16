@@ -1,0 +1,69 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Qiniu Web Player Basic Demo</title>
+  <script src="https://sdk-release.qnsdk.com/qiniu-web-player-1.0.0.js"></script>
+</head>
+<body>
+  <div id="player" style="width: 640px; height: 480px;"></div>
+
+  <script>
+    var container = document.getElementById("player");
+    var player = new QPlayer({
+      url: "http://demo-videos.qnsdk.com/movies/qiniu.mp4",
+      container: container,
+      autoplay: true,
+    })
+  </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://sdk-release.qnsdk.com/qiniu-web-player-1.0.0.js"></script>
+</head>
+<body>
+  <div class="main">
+    <div class="box" id="player1" style="width: 280px; height: 240px;">
+      <h3>视频SDK测试</h3>
+    </div>
+  </div>
+</body>
+<script>
+  var container = document.getElementById("player1");
+  var player = new QPlayer({
+    url: "http://demo-videos.qnsdk.com/movies/qiniu.mp4",
+    container: container,
+    autoplay: true
+  });
+  </script>
+</html>
+
+<template>
+  <div class="main">
+    <div class="box" id="player1" style="width: 280px; height: 240px;">
+      <h3>视频SDK测试</h3>
+    </div>
+  </div>
+</template>
+
+<script>
+import QPlayer from "qiniu-web-player";
+
+var container = document.getElementById("player1");
+var player = new QPlayer({
+  url: "http://demo-videos.qnsdk.com/movies/qiniu.mp4",
+  container: container,
+  autoplay: true
+});
+export default {};
+</script>
