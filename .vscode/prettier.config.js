@@ -4,7 +4,7 @@ module.exports = {
   // 使用 tab 缩进，默认 false
   useTabs: false,
   // 使用分号, 默认 true
-  semi: true,
+  semi: false,
   // 使用单引号, 默认 false (在jsx中配置无效, 默认都是双引号)
   singleQuote: true,
   // 行尾逗号,默认 none,可选 none|es5|all
@@ -19,4 +19,4 @@ module.exports = {
   // avoid 能省略括号的时候就省略 例如 x => x
   // always 总是有括号
   arrowParens: 'avoid'
-};
+}
