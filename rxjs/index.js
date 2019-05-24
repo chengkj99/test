@@ -15,11 +15,11 @@ let a = of([1,2,3])
 //   }, 1000)
 // })
 
-// s.subscribe({
-//   next: x => { console.log(x) },
-//   error: err => { console.log('err', err) },
-//   complete: () => { console.log('complete') }
-// })
+s.subscribe({
+  next: x => { console.log(x) },
+  error: err => { console.log('err', err) },
+  complete: () => { console.log('complete') }
+})
 
 // var button = document.querySelector('button')
 // var rate = 1000
@@ -42,27 +42,29 @@ let a = of([1,2,3])
 // 什么是 Observable: 创建  订阅  执行  清理
 
 // 1.创建 Observables
-var observable = Rx.Observable.create(function (observer) {
-  observer.next(1);
-  observer.next(2);
-  observer.next(3);
-  setTimeout(() => {
-    observer.next(4);
-    observer.complete();
-  }, 1000);
-});
+// var observable = Rx.Observable.create(function (observer) {
+//   observer.next(1);
+//   observer.next(2);
+//   observer.next(3);
+//   setTimeout(() => {
+//     observer.next(4);
+//     observer.complete();
+//   }, 1000);
+// });
+
+
 
 // 2.订阅 Observables
-observable.subscribe(x => console.log(x));
+// observable.subscribe(x => console.log(x));
 
-3.执行 Observables
-Observable.create(function subscribe(observer) {...}) 中...的代码表示 “Observable 执行”
-var observable = Rx.Observable.create(function subscribe(observer) {
-  observer.next(1);
-  observer.next(2);
-  observer.next(3);
-  observer.complete();
-});
+// 3.执行 Observables
+// Observable.create(function subscribe(observer) {...}) 中...的代码表示 “Observable 执行”
+// var observable = Rx.Observable.create(function subscribe(observer) {
+//   observer.next(1);
+//   observer.next(2);
+//   observer.next(3);
+//   observer.complete();
+// });
 
 // 4.清理 Observables
 // var observable = Rx.Observable.from([10, 20, 30]);
