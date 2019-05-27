@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      div {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100px;
+        height: 100px;
+        background: #999;
+        padding: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div"></div>
+  </body>
+
+  <script>
+    const div = document.getElementById("div");
+    let initPosition = {};
+
+    div.addEventListener("mousedown", onMousedown);
+
+    function onMousedown(event) {
+      const { pageX, pageY } = event;
+      initPosition = getPosition();
+
+      document.addEventListener("mousemove", omMousemove);
+      document.addEventListener("mouseup", onMouseUp);
+    }
+
+    function omMousemove(event) {
+      const { pageX, pageY } = event;
+      const { left, top } = calcPosition(pageX, pageY);
+      div.style.cssText = `left:${left}px;top:${top}px;`;
+    }
+
+    function onMouseUp(event) {
+      document.removeEventListener("mousemove", omMousemove);
+    }
+
+    function calcPosition(pageX, pageY) {
+      const {
+        left,
+        top,
+        scrollLeft,
+        maxCriticalX,
+        maxCriticalY
+      } = initPosition;
+
+      let x = pageX - left;
+      let y = pageY - top;
+
+      if (x <= scrollLeft) {
+        x = scrollLeft;
+      }
+
+      if (x >= maxCriticalX) {
+        x = maxCriticalX;
+      }
+
+      if (y >= maxCriticalY) {
+        y = maxCriticalY;
+      }
+
+      if (y <= 0 || maxCriticalY < 0) {
+        y = 0;
+      }
+
+      return {
+        left: x,
+        top: y
+      };
+    }
+
+    function getPosition() {
+      const { left, top, width, height } = div.getBoundingClientRect();
+      const { scrollLeft, scrollTop } = document.body;
+      const maxCriticalX = scrollLeft + innerWidth - width;
+      const maxCriticalY = scrollTop + innerHeight - height;
+      return {
+        left,
+        top,
+        scrollLeft,
+        maxCriticalX,
+        maxCriticalY
+      };
+    }
+  </script>
+</html>
