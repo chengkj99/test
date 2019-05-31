@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="canvas">
+      <!-- 替换内容 -->
+      <!-- 如果canvans 图像不能被正常渲染，将会显示替代内容 -->
+      这里是替代内容
+    </canvas>
+    <!--  </canvas> 标签不可省 -->
+  </body>
+  <script>
+    var canvas = document.getElementById("canvas");
+    // 检查支持性
+    if (canvas.getContext) {
+      // 渲染上下文
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = "#ccc";
+      ctx.fillRect(10, 10, 100, 100);
+    } else {
+      // canvas-unsupported code here
+    }
+  </script>
+</html>

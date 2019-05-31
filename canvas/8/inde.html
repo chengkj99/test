@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body onload="draw()">
+    <canvas id="canvas" width="150px" height="200px"></canvas>
+  </body>
+  <script>
+    function draw() {
+      var canvas = document.getElementById("canvas");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+        for (let i = 0; i < 4; i++) {
+          for (let j = 0; j < 3; j++) {
+            let x = 25 + j * 50; // x 坐标值
+            let y = 25 + i * 50; // y 坐标值
+            let radius = 20 // 圆弧半径
+            let startAngle = 0; // 开始点
+            let endAngle = Math.PI + (Math.PI * j) / 2; // 结束点
+            let anticlockwise = i % 2 == 0 ? false : true; // 顺时针或逆时针
+
+            ctx.beginPath(); // 都会以上一次 beginPath 之后的所有路径为基础进行绘制。
+            ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+            if (i > 1) {
+              ctx.fill();
+            } else {
+              ctx.stroke();
+            }
+          }
+        }
+      }
+    }
+  </script>
+</html>

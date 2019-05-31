@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body onload="draw()">
+    <canvas id="canvas" width="150px" height="150px"></canvas>
+  </body>
+  <script>
+    function draw() {
+      var canvas = document.getElementById("canvas");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+        ctx.beginPath();
+        ctx.moveTo(25, 25);
+        ctx.lineTo(25, 105);
+        ctx.lineTo(105, 25);
+        // 用填充（fill）时，路径自动闭合
+        ctx.fill();
+
+        ctx.moveTo(125, 125);
+        ctx.lineTo(125, 45);
+        ctx.lineTo(45, 125);
+        // 描边（stroke）则不会闭合路径。如果没有添加闭合路径closePath()到描述三角形函数中，则只绘制了两条线段，并不是一个完整的三角形。
+        ctx.closePath();
+        ctx.stroke();
+      }
+    }
+  </script>
+</html>
