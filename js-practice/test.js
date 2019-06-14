@@ -9,9 +9,9 @@
 //    }, 3000)
 // }
 
-let a = [1,2,3,4,5,6]
-let b = [1,3,6]
-//
+// let a = [1,2,3,4,5,6]
+// let b = [1,3,6]
+// //
 // let t = a.filter( (it) => {
 //   if (it > 3) {
 //     return it
@@ -28,9 +28,9 @@ let b = [1,3,6]
 // }
 // console.log(t)
 
-for (var v of b) {
-  let index = a.indexOf(v)
-  console.log(a.indexOf(v))
-  a.splice(index, 1)
-}
-console.log(a)
+// for (var v of b) {
+//   let index = a.indexOf(v)
+//   console.log(a.indexOf(v))
+//   a.splice(index, 1)
+// }
+// console.log(a)
