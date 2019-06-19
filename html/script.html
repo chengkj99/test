@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body></body>
+
+  <!-- <script>的运行方式更像是相互独立的 JavaScript 程序，但是并非
+  总是如此。 它们共享 global 对象(在浏览器中则是
+  window)，也就是说这些文件中的代码在共享的命 名空间中运行，并相互交互。
+  混合环境JavaScript | 129 如果某个 script 中定义了函数 foo()，后面的 script
+  代码就可以访问并调用 foo()，就像 foo() 在其内部被声明过一样。 -->
+
+  <!-- OK -->
+  <!-- <script>
+    function foo() {
+      console.log("foo");
+    }
+  </script>
+  <script>
+    foo();
+  </script> -->
+
+  <!-- Uncaught ReferenceError: foo is not defined at script.html:20 -->
+  <!-- <script>
+    foo();
+  </script>
+  <script>
+    function foo() {
+      console.log("foo");
+    }
+  </script> -->
+
+
+<!--
+  <script>
+    var code = "<script>alert(‘Hello World’)</sc" + "ript>";
+  </script> -->
+</html>
