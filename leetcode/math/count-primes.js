@@ -11,8 +11,22 @@
  * @return {number}
  */
 
-// 方法1：
-var countPrimes = function(n) {
+//方法1 利用标签语句
+var countPrimes1 = function(n) {
+  let count = 0
+  foo: for (let i = 2; i < n; i++) {
+    for(let j = 2; j * j <= i; j++ ) {
+      if (i % j === 0) {
+        continue foo;
+      }
+    }
+    count++
+  }
+  return count
+}
+
+// 方法2：
+var countPrimes2 = function(n) {
   let count = 0
   const isPrime = value => {
     if (value <= 1) return false
@@ -33,9 +47,8 @@ var countPrimes = function(n) {
   return count
 }
 
-// 方法2：标记法
-
-var countPrimes2 = function(n) {
+// 方法3：标记法
+var countPrimes3 = function(n) {
   let count = 0
   const isPrime = []
   // 先标记 true
@@ -56,4 +69,6 @@ var countPrimes2 = function(n) {
   return count
 }
 
-console.log('!!!,', countPrimes2(10))
+console.log('///,', countPrimes1(49997))
+console.log('!!!,', countPrimes2(49997))
+console.log('&&&,', countPrimes3(49997))
