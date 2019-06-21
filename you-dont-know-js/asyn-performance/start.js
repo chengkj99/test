@@ -1,14 +1,15 @@
 // 异步执行
-const now = () => {
-  return 21;
+function later() {
+  const now = () => {
+    return 21;
+  };
+  const later = () => {
+    answer = answer * 2;
+    console.log("Meaning of life:", answer);
+  };
+  let answer = now();
+  setTimeout(later, 1000); // Meaning of life: 42
 }
-const later = () => {
-  answer = answer * 2;
-  console.log("Meaning of life:", answer);
-}
-let answer = now();
-setTimeout(later, 1000); // Meaning of life: 42
-
 
 // eventLoop 简单的模型
 const eventLoop = () => {
@@ -29,8 +30,8 @@ const eventLoop = () => {
       }
     }
   }
-}
+};
 
-(function(){
-  eventLoop()
-})()
+(function() {
+  // eventLoop();
+})();
