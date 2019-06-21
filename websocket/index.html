@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Websocket Demo</title>
+  </head>
+  <body>
+    <button onclick="openConnect()">OPEN WebSocket</button>
+    <button onclick="closeConnect()">CLOSE WebSocket</button>
+
+    <div class="input">
+      <input type="text" id="input" />
+      <button onclick="send()">send</button>
+    </div>
+    <div id="output"></div>
+  </body>
+  <script>
+    let ws;
+    let outputDom = document.getElementById("output");
+    let inputDom = document.getElementById("input");
+    let print = function(message) {
+      var d = document.createElement("div");
+      d.innerHTML = message;
+      outputDom.appendChild(d);
+    };
+    function openConnect() {
+      if (ws) {
+        return;
+      }
+      ws = new WebSocket("ws://localhost:1010/", "echo-protocol");
+      ws.onopen = function() {
+        print("OPEN");
+      };
+      ws.onclose = function() {
+        ws = null;
+        print("CLOSED");
+      };
+      ws.onmessage = function(e) {
+        print(`Reveive data: ${e.data}`);
+      };
+      ws.onerror = function(e) {
+        print(`Error: ${e.data}`);
+      };
+    }
+    function closeConnect() {
+      if (ws) {
+        ws.close();
+        print(`DO CLOSE`);
+      }
+      return false;
+    }
+    function send(e) {
+      if (!ws) {
+        return false;
+      }
+      print(`Send data: ${inputDom.value}`);
+      ws.send(inputDom.value);
+    }
+  </script>
+</html>
