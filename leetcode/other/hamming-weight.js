@@ -27,21 +27,30 @@
  * @param {number} n - a positive integer
  * @return {number}
  */
+// 循环和二进制
 // 整数 -> 二进制数 -> 1 的个数
-// var hammingWeight = function(n) {
-//   let count = 0
-//   const binaryNum = parseInt(n, 10).toString(2)
-//   const s = String(binaryNum)
+function hammingWeight1(n) {
+  let count = 0
+  const binaryNum = parseInt(n, 10).toString(2)
+  const s = String(binaryNum)
 
-//   for (let i = 0; i < s.length; i++) {
-//     if (s.charAt(i) === '1') {
-//       count++
-//     }
-//   }
-//   return count
-// }
+  for (let i = 0; i < s.length; i++) {
+    if (s.charAt(i) === '1') {
+      count++
+    }
+  }
+  return count
+}
 
-function hammingWeight(n) {
+// 循环和位移动
+// 遍历数字的 32 位，每一位 & 运算，如果 != 0 说明是 1，否则向左移一位；
+// 如： 8: 1000
+// 1000 & 1 == 0
+// 1000 & 10 == 0
+// 1000 & 10 == 0
+// 1000 & 100 == 0
+// 1000 & 1000 == 1
+function hammingWeight2(n) {
   let bits = 0
   let mask = 1
   for (let i = 0; i < 32; i++) {
@@ -53,4 +62,21 @@ function hammingWeight(n) {
   return bits
 }
 
-console.log(hammingWeight(100))
+// 位操作
+// 将 n 和 n - 1 做与运算，会把最后一个 1 的位变成 0，当数字变成 0 的时候偶，我们就知道它没有 1 的位了;
+// 如： 8： 1000
+// 8 & 7 => 1000 & 0111 === 0 => count = 1
+// 如 3
+// 3 & 2 => 11 & 10 => 10 & 01 === 0 => count 2
+function hammingWeight3(n) {
+  let count = 0
+  while(n != 0) {
+    count++
+    n = n & (n-1)
+  }
+  return count
+}
+
+console.log(hammingWeight1(100)) // 3
+console.log(hammingWeight2(100)) // 3
+console.log(hammingWeight3(100)) // 3
