@@ -32,6 +32,23 @@ const eventLoop = () => {
   }
 };
 
+function continuation1() {
+  console.log("A");
+  setTimeout(function() {
+    console.log("C");
+  }, 1000);
+  console.log("B");
+}
+function continuation2() {
+  function result(data) {
+    console.log(a); // 1
+  }
+  var a = 0;
+  setTimeout(result, 0);
+  a++;
+}
+
 (function() {
   // eventLoop();
+  continuation2();
 })();
