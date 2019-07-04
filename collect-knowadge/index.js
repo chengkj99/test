@@ -32,7 +32,8 @@ function sleep(delay) {
   await page.screenshot({ path: "exam2.png" });
   const pageData = await page.evaluate(() => {
     const title = document.getElementsByClassName('cZCVMzBP_0')[0].innerHTML
-    const content = document.getElementsByClassName('_1kh1ihh6_0')[0].innerHTML
+    const content = document.getElementsByClassName('_2SKlnZlt_0')[0].innerHTML
+    const content = document.getElementsByClassName('_3-W_zrq4_0')[0].innerHTML
     return {
       title,
       content
