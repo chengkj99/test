@@ -43,11 +43,11 @@ Solution.prototype.shuffle = function() {
   }
   let len = nums.length
   while (len > 0) {
-    for (let i = 0; i < len; i++) {
+    // for (let i = 0; i < len; i++) { // 多余的一层循环
       const value = nums.splice(getRandomInt(len), 1)
       newNums.push(...value)
-    }
-    len = nums.length
+      len = nums.length
+    // }
   }
   return newNums
 }

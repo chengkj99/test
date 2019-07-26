@@ -31,12 +31,14 @@ function sleep(delay) {
   await sleep(500);
   await page.screenshot({ path: "exam2.png" });
   const pageData = await page.evaluate(() => {
-    const title = document.getElementsByClassName('cZCVMzBP_0')[0].innerHTML
-    const content = document.getElementsByClassName('_2SKlnZlt_0')[0].innerHTML
-    const content = document.getElementsByClassName('_3-W_zrq4_0')[0].innerHTML
+    const title = document.getElementsByClassName('cZCVMzBP_0')[0].textContent
+    const content1 = document.getElementsByClassName('_2SKlnZlt_0')[0].innerHTML
+    const content2= document.getElementsByClassName('_2i1ytqT9_0')[0].innerHTML
+    // const content = document.getElementsByClassName('_3-W_zrq4_0')[0].innerHTML
     return {
       title,
-      content
+      content1,
+      content2
     }
   });
   result.push(pageData)

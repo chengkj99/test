@@ -5,7 +5,6 @@
 // 数字 1-9 在每一列只能出现一次。
 // 数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。
 
-
 // 上图是一个部分填充的有效的数独。
 
 // 数独部分空格内已填入了数字，空白格用 '.' 表示。
@@ -54,53 +53,53 @@
  * @return {boolean}
  */
 var isValidSudoku = function(board) {
-  let num = 9;
+  let num = 9
   for (let i = 0; i < num; i++) {
-      let hashRow = {}
-      let hashCol = {}
-      // 行
-      for (let j = 0; j < num; j++) {
-          let curR = board[i][j]
-          if (curR === '.') {
-              continue
-          }
-          if (hashRow[curR]) {
-              return false
-          } else {
-              hashRow[curR] = true
-          }
+    let hashRow = {}
+    let hashCol = {}
+    // 行
+    for (let j = 0; j < num; j++) {
+      let curR = board[i][j]
+      if (curR === '.') {
+        continue
       }
-      // 列
-      for (let j = 0; j < num; j++) {
-          let curC = board[j][i]
-          if (curC === '.') {
-              continue
-          }
-          if (hashCol[curC]) {
-              return false
-          } else {
-              hashCol[curC] = true
-          }
+      if (hashRow[curR]) {
+        return false
+      } else {
+        hashRow[curR] = true
       }
+    }
+    // 列
+    for (let j = 0; j < num; j++) {
+      let curC = board[j][i]
+      if (curC === '.') {
+        continue
+      }
+      if (hashCol[curC]) {
+        return false
+      } else {
+        hashCol[curC] = true
+      }
+    }
   }
-// 方阵
-for (let i = 0; i < num; i+=3) {
-  for (let j = 0; j < num; j+=3) {
-    let hashMatrix = {}
-    for (let a = i; a < 3 + i; a ++) {
-      for (let b = j; b < 3 + j; b ++) {
-        let curM = board[a][b]
-        if (curM === '.') {
+  // 方阵
+  for (let i = 0; i < num; i += 3) {
+    for (let j = 0; j < num; j += 3) {
+      let hashMatrix = {}
+      for (let a = i; a < 3 + i; a++) {
+        for (let b = j; b < 3 + j; b++) {
+          let curM = board[a][b]
+          if (curM === '.') {
             continue
-        }
-        if (hashMatrix[curM]) {
+          }
+          if (hashMatrix[curM]) {
             return false
-        } else {
+          } else {
             hashMatrix[curM] = true
+          }
         }
       }
     }
   }
+  return true
 }
-return true
-};

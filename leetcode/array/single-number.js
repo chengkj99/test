@@ -18,6 +18,7 @@
  * @param {number[]} nums
  * @return {number}
  */
+// 异或，相同得0，不相同得1
 var singleNumber = function(nums) {
   let m = 0
   for (let i = 0; i < nums.length; i++) {

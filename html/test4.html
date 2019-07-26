@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .list {
+      position: relative;
+      display: flex;
+      justify-content: flex-start;
+    }
+    .list li {
+      width: 20px;
+      height: 20px;
+      background: #ccc;
+      margin: 20px;
+    }
+    .list li:first-child:last-child {
+      color: red;
+    }
+    .list li:first-child:nth-child(2) {
+      color: green;
+    }
+    .list li:first-child:nth-child(2) {
+      color: orange;
+    }
+  </style>
+</head>
+<body>
+  <div class="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </div>
+</body>
+</html>

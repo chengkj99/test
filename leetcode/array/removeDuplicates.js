@@ -36,6 +36,7 @@ var removeDuplicates = function(nums) {
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] !== nums[count]) {
       count++
+      // 让下一个数等于上一个数，下次循环时，用前一个值和当前值判断相等，相等就是重复，不做处理，否则，就累计加 +1
       nums[count] = nums[i]
     }
   }
