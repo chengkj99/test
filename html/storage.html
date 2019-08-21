@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>这是新的页面</title>
+  </head>
+  <body>
+    <p id="p"></p>
+    <table border="1px">
+      <input type="text" class="value-input" />
+      <button onclick="addInfo()">add</button>
+      <tr>
+        <td>房间号</td>
+        <td>消息</td>
+      </tr>
+      <tr id="101">
+        <td name="rid">101</td>
+        <td name="msg">暂无</td>
+      </tr>
+      <tr id="102">
+        <td name="rid">102</td>
+        <td name="msg">暂无</td>
+      </tr>
+      <tr id="103">
+        <td name="rid">103</td>
+        <td name="msg">暂无</td>
+      </tr>
+    </table>
+  </body>
+  <script type="text/javascript">
+    let i = 100;
+    // 探测浏览器是否支持localStorage
+    var isSupportLocalStorage = function() {
+      try {
+        return "localStorage" in window && window["localStorage"] != null;
+      } catch (e) {
+        return false;
+      }
+    };
+    console.log("IsSupport-localStorage", isSupportLocalStorage());
+
+    var oriSetItem = localStorage.setItem;
+    localStorage.setItem = function(key, value) {
+      //这里抛出自定义事件
+      var event = new Event("storage");
+      event.newValue = value;
+      window.dispatchEvent(event);
+
+      //实现原方法
+      oriSetItem.apply(this, arguments);
+    };
+
+    function addInfo() {
+      i++;
+      const v = document.getElementsByClassName("value-input")[0].value;
+      localStorage.setItem('"' + i + '"', v);
+    }
+
+    window.addEventListener("storage", function(e) {
+      console.log("@@@@@@", e);
+    });
+  </script>
+</html>
