@@ -387,5 +387,5 @@ document.getElementById('wrapper').addEventListener('click', function(e) {
 * 服务端渲染
 * 单页应用的问题：首屏加载慢。如何解决？多页应用 或 服务端渲染
 * 浏览器组成原理,浏览器的多进程/多线程
-* 
+*
 * ...

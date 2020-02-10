@@ -18,7 +18,7 @@
 5. setState是同步还是异步，为什么
 阿里妈妈电面
 1. xss 和 srcf 的各种细节，操作
-2. 箭头函数 this 指向哪里，如何获取箭头函数的参数
+2. 箭头函数 this 指向哪里，如何获取箭头函数的参数 (https://juejin.im/post/5c76972af265da2dc4538b64)
 3. redux-thunk 有什么缺点，redux-saga 有什么好处，saga 解决了什么问题
 4. react 中渲染 list 为什么要加 key，不加会怎么样？这个方法有什么缺点，你有没有更好的方法
 5. react 虚拟 DOM
@@ -51,7 +51,7 @@ react中setState是同步的还是异步的，这个问题可以说是 必问，
 	font-size: 1.2em;
 	line-height: 1.5em;
 }
-3.	在一个数组中找出和为m的两个数，拓展一下，一个数组中找出n个数，使其和为m 
+3.	在一个数组中找出和为m的两个数，拓展一下，一个数组中找出n个数，使其和为m
 4.	even loop的原理
 
 其他：
@@ -65,10 +65,10 @@ react中setState是同步的还是异步的，这个问题可以说是 必问，
 滴滴
 1.	说明：高度的三栏布局  变形
 2.	未知大小的图片垂直居中
-3.	new new function() 
+3.	new new function()
 4.	function的变量提升
 5.	正则匹配match的东西  string welcome to didi!  “?=”是什么意思
-6.	object怎么定义常量不改变 
+6.	object怎么定义常量不改变
 7.	object.defineproperty 用过吗
 8.	add(1)(2) //3 add(1,2) https://stackoverflow.com/questions/2272902/how-can-i-make-var-a-add23-5-work
 9.	cros的具体实现
@@ -106,7 +106,7 @@ react中setState是同步的还是异步的，这个问题可以说是 必问，
 2.	实现一个方法判断一个字符串是否完全包含另一个（不许使用 indexOf slice splice 这些现成的方法，只能用 for 循环）
 3.	如果让你写一个 tree 组件你怎么写，不用写代码，把要暴露的接口、方法、回调设计出来
 4.	未知参数个数的柯里化实现
-5.	modal 组件的打开/关闭方法怎么做的，如何调用 
+5.	modal 组件的打开/关闭方法怎么做的，如何调用
 6.	debouce throttle 手写
 7.	简历里提到的复杂表单必填校验 如何校验的
 8.	米家预约购买部分的时间倒数逻辑如何判断的，如何和服务器端更新时间的
@@ -159,7 +159,7 @@ react中setState是同步的还是异步的，这个问题可以说是 必问，
 5.	知不知道webview 和 native 怎么通信的（jsbridge 这块通通没看，所以没答上来）
 6.	reflow repaint 的区别，从浏览器渲染的过程开始一通 bb
 7.	BFC IFC 区别 如何形成
-8.	获取 top 值是否会引起重绘 
+8.	获取 top 值是否会引起重绘
 。支付宝
 电话面试：
 1.	上来就问 React 声明周期 diff 算法 性能优化
@@ -193,7 +193,7 @@ const day='21';
 const str = `${year}-${month}-${day}`;
 console.log(str) 输出：2017-09-21
 2.	求二叉树是否存在和值为N的路径。从二叉树的根，到叶子节点称为一条路径，路径上的每个节点的value之和为路径和值，本题要求所有的路径中是否存在一条和值为N的？
-3.	封装一个 JS 的 HTTP 请求库。  
+3.	封装一个 JS 的 HTTP 请求库。
 
 
 百度
@@ -205,7 +205,7 @@ console.log(str) 输出：2017-09-21
 
 1.	二分法查找一个值。
 2.	简答：
-123 instantof Number  //false 
+123 instantof Number  //false
 new Number(123) instantof Number // true
 Number(123) instantof Number // false
 

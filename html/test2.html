@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title></title>
     <script type="text/javascript" src="watch.js"></script>
 </head>
 <script>
-    var A=XMLHttpRequest;
-    var https=[];
-    var C=function()
-    {
-        var a=new A();
-        https.push(a);//保存所有ajax请求
+    var A = XMLHttpRequest;
+    var https = [];
+    var C = function () {
+        var a = new A();
+        https.push(a); //保存所有ajax请求
         return a;
     }
-    XMLHttpRequest=C;
-    var a=new XMLHttpRequest();
-    var url='http://localhost/index.php?act=temp';
-    a.addEventListener('readystatechange',function(e){
+    XMLHttpRequest = C;
+    var a = new XMLHttpRequest();
+    var url = 'http://localhost/index.php?act=temp';
+    a.addEventListener('readystatechange', function (e) {
         console.log(e.target);
     });
     console.log(XMLHttpRequest.XMLHttpRequestEventTarget);
-    a.onreadystatechange=function()
-    {
+    a.onreadystatechange = function () {
         console.log('abc');
     };
-    a.open('GET',url);
+    a.open('GET', url);
     a.send(null);
-
 </script>
+
 <body>
 
 </body>
+
 </html>
