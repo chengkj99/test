@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>版本号选择</title>
+</head>
+
+<body>
+  <div>
+    <div class="version-switch">
+      <label for="">版本号选择 :
+      </label>
+      <select name="版本号选择" id="version-select" value="latest"></select>
+    </div>
+  </div>
+</body>
+<script src="./jquery.min.js"></script>
+<!-- <script src="./version-1.js"></script> -->
+<script>
+  $(document).ready(
+    () => {
+      // $("#version-select").load("./version-1.js", function (responseTxt, statusTxt, xhr) {
+      //   if (statusTxt == "success")
+      //     alert("外部内容加载成功!");
+      //   if (statusTxt == "error")
+      //     alert("Error: " + xhr.status + ": " + xhr.statusText);
+      // });
+
+      let versionData = null;
+      $.ajax({
+        url: "./version.json",
+        success: function (data) {
+          versionData = data
+          const {
+            latest,
+            versions
+          } = data
+          versions.forEach((item) => {
+            let option = '';
+            let pathname = location.pathname.match('latest') ? latest : location.pathname
+            if (pathname.match(item.path)) {
+              option = `<option selected="selected" value="${item.path}">${item.name}</option>`
+            } else {
+              option = `<option value="${item.path}">${item.name}</option>`
+            }
+            $('#version-select').append(option)
+          })
+        }
+      })
+
+      $('#version-select').on('change', function (e) {
+
+        $("#version-select").val(this.value);
+        $(this).width($('select option:selected').width());
+
+        let href = this.value === versionData.latest ? 'latest' : this.value
+        location.href = `http://${location.host}/version-${href}.html`;
+        // location.href = `http://${location.host}/doc/${this.value}`;
+      });
+    })
+</script>
+
+</html>
+
+
+<!-- latest => 1.1 -->
+<!-- 1.1 => 1.1 -->
+<!-- 1.0 => 1.0 -->

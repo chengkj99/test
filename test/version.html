@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>版本号选择</title>
+</head>
+
+<body>
+  <div>
+    <div class="version-switch">
+      <label for="">版本号选择 :
+      </label>
+      <select name="版本号选择" id="version-select" value="latest"></select>
+    </div>
+  </div>
+</body>
+<script src="../utils/jquery.min.js"></script>
+<script src="./version.js"></script>
+<script>
+  $(document).ready(
+    () => {
+      location.
+      versions.forEach((val) => {
+        let option = '';
+        if (val.match('.js')) {
+          return
+        }
+        if (val === 'latest') {
+          option = `<option selected="selected" value="${val}">${val}</option>`
+        } else {
+          option = `<option value="${val}">${val}</option>`
+        }
+        $('#version-select').append(option)
+      })
+      console.log('!!!!!', versions)
+    }
+  )
+</script>
+
+</html>
