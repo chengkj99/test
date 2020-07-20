@@ -1,8 +1,8 @@
-
 // // this 相关
 
-(function(){
+(function () {
   var a = 100
+
   function f1() {
     var a = 200
     return function () {
@@ -14,70 +14,73 @@
   // 因为这是闭包，当 return function 时，内部的变量会一直引用 f1 内的 a ，直到内部的函数执行结束。
 })()
 
-// (function() {
-//   var a = 100
-//   function f2(fn) {
-//     var a = 200
-//     fn()
-//   }
-//   function fn() {
-//     console.log('f2', a)
-//   }
-//   f2(fn) // 100
-//   // 不是闭包
-// })()
+(function () {
+  var a = 100
+
+  function f2(fn) {
+    var a = 200
+    fn()
+  }
+
+  function fn() {
+    console.log('f2', a)
+  }
+  f2(fn) // 100
+  // 不是闭包
+})()
 
 
-// // instantceof 相关
-// (function(){
-//   console.log(123 instanceof Number) // false
-//   console.log(new Number(123) instanceof Number) // true
-//   console.log(Number(123) instanceof Number) // false
-// })()
+// instantceof 相关
+(function () {
+  console.log(123 instanceof Number) // false
+  console.log(new Number(123) instanceof Number) // true
+  console.log(Number(123) instanceof Number) // false
+})()
 
 
 // 深 copy
 
-// function deepClone(obj) {
-//   let temp = obj.constructor === Array ? [] : {}
-//   for (let key in obj) {
-//     if (!obj.hasOwnProperty(key)) continue
-//     temp[key] = typeof obj[key] == 'object' ? deepClone(obj[key]) : obj[key]
-//   }
-//   return temp
-// }
+function deepClone(obj) {
+  let temp = obj.constructor === Array ? [] : {}
+  for (let key in obj) {
+    if (!obj.hasOwnProperty(key)) continue
+    temp[key] = typeof obj[key] == 'object' ? deepClone(obj[key]) : obj[key]
+  }
+  return temp
+}
 
 
 // 数组去重
 // Set, hash, indexOf
 
-// let arr = [1,2,3,4,5,6,7,1,2,3, '1']
-// // console.log('去重：', Array.from(new Set(arr)))
-// // console.log('去重：', [...new Set(arr)])
-// function distinct(arr) {
-//   let hash = {}
-//   let newArr = []
-//   for(let val of arr) {
-//     if (hash[val] === val) {
-//       continue
-//     }
-//     hash[val] = val
-//     newArr.push(val)
-//   }
-//   return newArr
-// }
+let arr = [1, 2, 3, 4, 5, 6, 7, 1, 2, 3, '1']
+console.log('去重：', Array.from(new Set(arr)))
+console.log('去重：', [...new Set(arr)])
 
-// function distinct(arr) {
-//   let newArr = []
-//   for(let val of arr) {
-//     if (newArr.indexOf(val) === -1) {
-//       newArr.push(val)
-//     }
-//   }
-//   return newArr
-// }
+function distinct(arr) {
+  let hash = {}
+  let newArr = []
+  for (let val of arr) {
+    if (hash[val] === val) {
+      continue
+    }
+    hash[val] = val
+    newArr.push(val)
+  }
+  return newArr
+}
 
-// console.log(distinct(arr))
+function distinct(arr) {
+  let newArr = []
+  for (let val of arr) {
+    if (newArr.indexOf(val) === -1) {
+      newArr.push(val)
+    }
+  }
+  return newArr
+}
+
+console.log(distinct(arr))
 
 
 // 二叉树遍历
@@ -165,13 +168,15 @@
 // // 冒泡排序
 
 function bubble(arr) {
-  if (!arr || arr.length <= 2) { return arr }
+  if (!arr || arr.length <= 2) {
+    return arr
+  }
   for (let i = arr.length - 1; i > 0; i--) {
     for (let j = 0; j < i; j++) {
-      if (arr[j] > arr[j+1]) {
+      if (arr[j] > arr[j + 1]) {
         let temp = arr[j]
-        arr[j] = arr[j+1]
-        arr[j+1] = temp
+        arr[j] = arr[j + 1]
+        arr[j + 1] = temp
       }
     }
   }
@@ -186,7 +191,7 @@ function bubble(arr) {
 // 判断是否为实例的属性
 // hasOwnProperty
 function Person() {}
-Person.prototype.say = function() {
+Person.prototype.say = function () {
   console.log('hello world')
 }
 Person.prototype.age = 18
@@ -195,6 +200,3 @@ let p = new Person()
 p.say()
 // p.age = 20
 console.log(p.hasOwnProperty('age'), 'age' in p) // false, true
-
-
-

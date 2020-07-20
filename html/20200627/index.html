@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./utils/swiper.min.css">
+</head>
+
+<body>
+
+  <div id="app">
+    <div class="content slogon">
+      <img src="./img/1.png">
+    </div>
+
+    <div class="content content-1">
+      <div class="content-1-left swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="./img/2.png"></div>
+          <div class="swiper-slide">Slide 2</div>
+          <div class="swiper-slide">Slide 3</div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+      <div class="cotent-1-right">
+        <p class="title">
+          统一思想 凝聚力量 <br />
+          建设具有中国特点国际领先的能源互联网企业
+        </p>
+        <p class="cotent-1-right-detail">
+          国家电网有限公司2020年第二季度工作会议召开，会议深入贯彻习近平新时代中国特色社会主义思想，
+          总结一季度工作，分析形势，部署二季度重点任务，进一步统一思想、凝聚力量，全面建设具有中国特色国际领先
+          的能源互联网企业，坚决夺取疫情防控和实现全年目标任务双胜利，为全面建设小康社会贡献国网力量。
+          <a href="">[详细内容]</a>
+        </p>
+        <ul>
+          <li><span>公司引发《国家电网战略目标深化研究报告》</span></li>
+          <li><span>统一思想行动 推动战略落地落实</span></li>
+          <li><span>提升全球竞争力 坚定国际领先这个追求</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="content-2">
+      建设具有中国特色国际领先的能源互联网企业
+    </div>
+
+    <div class="content content-3">
+      <div class="content-3-title">
+        <img src="./img/3.png">
+      </div>
+      <div class="content-3-content-tabs">
+        <span v-for="(item, index) in content3" :class="{target: index == content3Index}"
+          @click="onContent3TabClick(index)">
+          {{item.title}}
+        </span>
+      </div>
+      <div class="content-3-content">
+        <ul>
+          <li v-for="value in content3[content3Index].content">
+            {{value}}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="content content-4">
+      <img src="./img/9.png" alt="">
+    </div>
+
+    <div class="content content-5">
+      <div class="content-5-title">
+        <img src="./img/5.png">
+      </div>
+      <div class="content-5-content-tabs">
+        <span v-for="(item, index) in content5" :class="{target: index == content5Index}"
+          @click="onContent5TabClick(index)">
+          {{item.title}}
+        </span>
+      </div>
+      <div class="content-5-content" v-for="(item, index) in content5" v-if="index == content5Index">
+        <p class="content-5-content-subtitle">{{content5[content5Index].content.subtitle}}</p>
+        <p class="content-5-content-detail">{{content5[content5Index].content.detail}}</p>
+      </div>
+    </div>
+
+    <div class="content content-6">
+      <div class="content-6-title">
+        <img src="./img/6.png">
+      </div>
+      <div class="content-6-content-tabs">
+        <span v-for="(item, index) in content6" :class="{target: index == content6Index}"
+          @click="onContent6TabClick(index)">
+          {{item.title}}
+        </span>
+      </div>
+      <div class="content-6-content" v-for="(item, index) in content6" v-if="index == content6Index">
+        <p class="content-6-content-detail">{{content6[content6Index].content}}</p>
+      </div>
+    </div>
+
+    <div class="content content-7">
+      <img src="./img/7.png">
+    </div>
+
+
+    <div class="content content-8">
+      <div class="content-8-title">
+        <img src="./img/8.png">
+      </div>
+      <div class="content-8-content">
+        <div class="content-8-content-left">
+          <ul>
+            <li v-for="item in content8.left">
+              <span>{{item.title}}</span>
+              <span>{{item.time}}</span>
+            </li>
+          </ul>
+        </div>
+        <div class="content-8-content-right">
+          <ul>
+            <li v-for="item in content8.right">
+              <span>{{item.title}}</span>
+              <span>{{item.time}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="page-footer">
+      <p>国家电网有限公司 版权所有 © 2003-2020 </p>
+      <p>国家电网有限公司党组宣传部（对外联络部）主办 | 国家电网有限公司信息通信分公司制作维护</p>
+    </div>
+
+  </div>
+</body>
+<script src="./utils/vue.js"></script>
+<script src="./utils/swiper.min.js"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      content3Index: 0,
+      content3: [{
+        title: '贯彻中央精神和决策部署',
+        content: [
+          '坚持党的领导，加强党的建设是国有企业的“根”和“魂”',
+          '坚持“两个一以贯之”',
+          '坚定不移做强做优做大国有资本，使国有企业成为“六个力量”',
+          '“四个革命，一个合作”能源安全战略'
+        ]
+      }, {
+        title: '顺应时代发展和形势变化',
+        content: [
+          '坚持党的领导，加强党的建设是国有企业的“根”和“魂”',
+          '坚持“两个一以贯之”',
+          '坚定不移做强做优做大国有资本，使国有企业成为“六个力量”',
+          '“四个革命，一个合作”能源安全战略'
+        ]
+      }, {
+        title: '扛起使命担当持续奋进',
+        content: [
+          '坚持党的领导，加强党的建设是国有企业的“根”和“魂”',
+          '坚持“两个一以贯之”',
+          '坚定不移做强做优做大国有资本，使国有企业成为“六个力量”',
+          '“四个革命，一个合作”能源安全战略'
+        ]
+      }],
+      content5Index: 0,
+      content5: [{
+        title: '一个引领',
+        content: {
+          subtitle: '坚持党建引领',
+          detail: '坚持党的领导，加强党的建设是国有企业的“根”和“魂”，以高质量党建引领公司高质量发展'
+        }
+      }, {
+        title: '两个驱动',
+        content: {
+          subtitle: '两个驱动',
+          detail: '两个驱动内容...'
+        }
+      }, {
+        title: '三个升级',
+        content: {
+          subtitle: '三个升级',
+          detail: '三个升级相关内容...'
+        }
+      }],
+      content6Index: 0,
+      content6: [{
+        title: '2020年至2025年',
+        content: '2020年至2025年，基本建成具有中国特色领先的能源互联网企业，具有中国特色优势鲜明，部分领域、关键环节和主要指标达到国际领先，初步建成能源互联网。'
+      }, {
+        title: '2026年至2035年',
+        content: '2026年至2035年，建成能源互联网相关内容...'
+      }],
+      content8: {
+        left: [{
+          title: '钢铁底色 光明速度',
+          time: '06-22'
+        }, {
+          title: '充电服务助力湖南十八洞村精准扶贫',
+          time: '06-18'
+        }, {
+          title: '国网附件电力：让“数据跑”获得“客户赞”',
+          time: '06-14'
+        }, {
+          title: '甘肃在全国率先实现电力现货交易长周期试运行',
+          time: '06-03'
+        }, {
+          title: '中国电科院：促进科技成果价值转化',
+          time: '05-27'
+        }, {
+          title: '国网新疆电力：聚焦脱贫攻坚协同增效',
+          time: '05-25'
+        }, {
+          title: '国网吉林电力：多层级联动确保电费回收',
+          time: '05-21'
+        }],
+        right: [{
+            title: '“捡储配一体化” 助力提质增效',
+            time: '06-19'
+          },
+          {
+            title: '全力冲刺，打赢“三区三周”电网建设攻坚战',
+            time: '06-15'
+          },
+          {
+            title: '建好抽蓄电站，带动一方经济，造福一方百姓',
+            time: '06-04'
+          },
+          {
+            title: '落实总书记嘱托 智慧电助力小康村',
+            time: '06-01'
+          },
+          {
+            title: '国网电商公司：区块链技术助力管理创新',
+            time: '05-26'
+          },
+          {
+            title: '国网陕西电力：精益管理聚力创新创效',
+            time: '05-22'
+          },
+          {
+            title: '国网福建电力：模拟经营提升创效能力',
+            time: '05-20'
+          }
+        ]
+      }
+    },
+    methods: {
+      onContent3TabClick(index) {
+        this.content3Index = index
+      },
+      onContent5TabClick(index) {
+        this.content5Index = index
+      },
+      onContent6TabClick(index) {
+        this.content6Index = index
+      }
+    }
+  })
+</script>
+<script>
+  var swiper = new Swiper('.swiper-container', {
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+</script>
+
+</html>

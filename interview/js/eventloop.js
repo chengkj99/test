@@ -22,15 +22,23 @@ new Promise(function(resolve) {
     console.log('8')
 })
 
-setTimeout(function() {
+process.nextTick(function() {
     console.log('9');
+})
+
+setTimeout(function() {
+    console.log('10');
     process.nextTick(function() {
-        console.log('10');
+        console.log('11');
     })
     new Promise(function(resolve) {
-        console.log('11');
+        console.log('12');
         resolve();
     }).then(function() {
-        console.log('12')
+        console.log('13')
     })
 })
+
+// 主线程 > nextTick > new Promise > setTimeout
+
+

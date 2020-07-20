@@ -37,7 +37,7 @@
 // };
 
 // 正确解法：
-var climbStairs = function(n) {
+var climbStairs = function (n) {
   const dp = []
   if (n === 1) {
     return 1
@@ -50,7 +50,7 @@ var climbStairs = function(n) {
   for (let i = 2; i < n; i++) {
     dp[i] = dp[i - 2] + dp[i - 1]
   }
-  return dp[n-1]
+  return dp[n - 1]
 }
 
 
@@ -68,3 +68,37 @@ var climbStairs = function(n) {
 
 // console.log(climbStairs(5))
 console.log(climbStairs(50)) //89
+
+function slimbStairs2(n) {
+  let dp = []
+  if (n === 1) {
+    return 1
+  }
+  if (n === 2) {
+    return 2
+  }
+  dp[1] = 1
+  dp[2] = 2
+  for (i = 3; i <= n; i++) {
+    dp[i] = dp[i - 2] + dp[i - 1]
+  }
+  return dp[n]
+}
+
+console.log(slimbStairs2(5))
+
+// 1 = 1
+// 2 = 2
+// 3 = 2 + 1
+1，1，1
+1，2
+2，1
+
+// 4 = 3 + 2
+1，1，1，1
+1，1，2
+1，2，1
+2，1，1
+2，2
+
+// 5 = 4 + 3 = 5 + 3 = 8

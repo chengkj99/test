@@ -14,7 +14,7 @@ function getMaxValue(arr) {
     if (arr[mid - 1] > mid) {
       right = mid - 1
     } else if (arr[mid + 1] > mid) {
-      left  = mid + 1
+      left = mid + 1
     } else {
       return mid
     }
@@ -23,5 +23,5 @@ function getMaxValue(arr) {
 }
 
 
-let arr = [1,2,3,4,6,32,66,77,99,33,29,26,22,21,10]
+let arr = [1, 2, 3, 4, 6, 32, 66, 77, 99, 33, 29, 26, 22, 21, 10]
 console.log(getMaxValue(arr)) // 99

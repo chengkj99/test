@@ -47,8 +47,8 @@
     }
     let result = []
     result.push(root.val)
-    result.concat(preorderTraversal(root.left))
-    result.concat(preorderTraversal(root.right))
+    result =  result.concat(preorderTraversal(root.left))
+    result =  result.concat(preorderTraversal(root.right))
     return result
   }
 <!-- 中序 -->
@@ -57,9 +57,9 @@
       return []
     }
     let result = []
-    result.concat(inorderTraversal(root.left))
+    result = result.concat(inorderTraversal(root.left))
     result.push(root.val)
-    result.concat(inorderTraversal(root.right))
+    result = result.concat(inorderTraversal(root.right))
     return result
   }
 
@@ -69,8 +69,8 @@
       return []
     }
     let result = []
-    result.concat(postorderTraversal(root.left))
-    result.concat(postorderTraversal(root.right))
+    result = result.concat(postorderTraversal(root.left))
+    result = result.concat(postorderTraversal(root.right))
     result.push(root.val)
     return result
   }

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Babylon Template</title>
+
+  <style>
+    html,
+    body {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    #renderCanvas {
+      width: 100%;
+      height: 100%;
+      touch-action: none;
+    }
+  </style>
+
+  <script src="https://preview.babylonjs.com/babylon.js"></script>
+  <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+  <!-- 在平板电脑和手机上使用的 BabylonJS 使用指针事件而不是鼠标事件，因此也需要加载PEP事件系统 -->
+  <!-- pep.js 是较近的建议，还有一个 hand.js 也可以工作 -->
+  <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
+</head>
+
+<body>
+
+  <canvas id="renderCanvas" touch-action="none"></canvas> <!-- touch-action="none" for best results from PEP -->
+
+
+
+  <script>
+    var canvas = document.getElementById("renderCanvas"); // Get the canvas element
+    var engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
+
+    /******* Add the create scene function ******/
+    var createScene = function () {
+      var scene = new BABYLON.Scene(engine);
+      var camera = new BABYLON.ArcRotateCamera("Camera", -Math.PI / 2, Math.PI / 3, 10, BABYLON.Vector3.Zero(),
+      scene);
+      camera.attachControl(canvas, true);
+
+      var mats = [
+        new BABYLON.Color3(1, 1, 0),
+        new BABYLON.Color3(1, 0, 1),
+        new BABYLON.Color3(0, 1, 1),
+        new BABYLON.Color3(1, 1, 1)
+      ]
+
+      var redMat = new BABYLON.StandardMaterial("redMat", scene);
+      redMat.emissiveColor = new BABYLON.Color3(1, 0, 0);
+
+      var greenMat = new BABYLON.StandardMaterial("greenMat", scene);
+      greenMat.emissiveColor = new BABYLON.Color3(0, 1, 0);
+
+      var blueMat = new BABYLON.StandardMaterial("blueMat", scene);
+      blueMat.emissiveColor = new BABYLON.Color3(0, 0, 1);
+
+      var whiteMat = new BABYLON.StandardMaterial("whiteMat", scene);
+      whiteMat.emissiveColor = new BABYLON.Color3(1, 1, 1);
+
+
+      //red light
+      var lightRed = new BABYLON.SpotLight("spotLight", new BABYLON.Vector3(-0.9, 1, -1.8), new BABYLON.Vector3(0, -1,
+        0), Math.PI / 2, 1.5, scene);
+      lightRed.diffuse = new BABYLON.Color3(1, 0, 0);
+      lightRed.specular = new BABYLON.Color3(0, 0, 0);
+
+      //green light
+      var lightGreen = new BABYLON.SpotLight("spotLight1", new BABYLON.Vector3(0, 1, -0.5), new BABYLON.Vector3(0, -1,
+        0), Math.PI / 2, 1.5, scene);
+      lightGreen.diffuse = new BABYLON.Color3(0, 1, 0);
+      lightGreen.specular = new BABYLON.Color3(0, 0, 0);
+
+      //blue light
+      var lightBlue = new BABYLON.SpotLight("spotLight2", new BABYLON.Vector3(0.9, 1, -1.8), new BABYLON.Vector3(0, -
+        1, 0), Math.PI / 2, 1.5, scene);
+      lightBlue.diffuse = new BABYLON.Color3(0, 0, 1);
+      lightBlue.specular = new BABYLON.Color3(0, 0, 0);
+
+      //white light
+      var lightWhite = new BABYLON.SpotLight("spotLight3", new BABYLON.Vector3(0, 1, 1), new BABYLON.Vector3(0, -1,
+        0), Math.PI / 2, 1.5, scene);
+      lightWhite.diffuse = new BABYLON.Color3(1, 1, 1);
+      lightWhite.specular = new BABYLON.Color3(0, 0, 0);
+
+      var redSphere = BABYLON.MeshBuilder.CreateSphere("sphere", {
+        diameter: 0.25
+      }, scene);
+      redSphere.material = redMat;
+      redSphere.position = lightRed.position;
+
+      var greenSphere = BABYLON.MeshBuilder.CreateSphere("sphere", {
+        diameter: 0.25
+      }, scene);
+      greenSphere.material = greenMat;
+      greenSphere.position = lightGreen.position;
+
+      var blueSphere = BABYLON.MeshBuilder.CreateSphere("sphere", {
+        diameter: 0.25
+      }, scene);
+      blueSphere.material = blueMat;
+      blueSphere.position = lightBlue.position;
+
+      var whiteSphere = BABYLON.MeshBuilder.CreateSphere("sphere", {
+        diameter: 0.25
+      }, scene);
+      whiteSphere.material = whiteMat;
+      whiteSphere.position = lightWhite.position;
+
+      var groundMat = new BABYLON.StandardMaterial("groundMat", scene);
+      groundMat.diffuseColor = mats[0];
+
+      var ground = BABYLON.MeshBuilder.CreateGround("ground", {
+        width: 4,
+        height: 6
+      }, scene);
+      ground.material = groundMat;
+
+      /*******************GUI***********************/
+      var makeYellow = function () {
+        groundMat.diffuseColor = mats[0];
+      }
+
+      var makePurple = function () {
+        groundMat.diffuseColor = mats[1];
+      }
+
+      var makeCyan = function () {
+        groundMat.diffuseColor = mats[2];
+      }
+
+      var makeWhite = function () {
+        groundMat.diffuseColor = mats[3];
+      }
+
+      var matGroup = new BABYLON.GUI.RadioGroup("Material Color", "radio");
+      matGroup.addRadio("Yellow", makeYellow, true);
+      matGroup.addRadio("Purple", makePurple);
+      matGroup.addRadio("Cyan", makeCyan);
+      matGroup.addRadio("White", makeWhite);
+
+      var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+
+      var selectBox = new BABYLON.GUI.SelectionPanel("sp", [matGroup]);
+      selectBox.width = 0.25;
+      selectBox.height = "50%";
+      selectBox.top = "4px";
+      selectBox.left = "4px";
+      selectBox.background = "white";
+      selectBox.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+      selectBox.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
+
+      advancedTexture.addControl(selectBox);
+
+      return scene;
+
+    };
+
+    /******* End of the create scene function ******/
+
+    var scene = createScene(); //Call the createScene function
+
+    // Register a render loop to repeatedly render the scene
+    engine.runRenderLoop(function () { // ?
+      scene.render();
+    });
+
+    // Watch for browser/canvas resize events
+    window.addEventListener("resize", function () {
+      engine.resize();
+    });
+  </script>
+
+</body>
+
+</html>
