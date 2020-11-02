@@ -1,26 +1,82 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>njhuihuuih</title>
-    <div >
-        <iframe src="https://console.upyun.com" width="1000" height="500"></iframe>
-        <iframe src="https://www.baidu.com/" id="baidu" frameborder="0" width="1000" height="500"></iframe>
-        <iframe src="https://portal.qiniu.io/cdnboss/" id="baidu" frameborder="0" width="1000" height="500"></iframe>
 
-        <iframe src="https://www.qiniu.com/" id="baidu" frameborder="0" width="1000" height="500"></iframe>
-        <iframe src="https://portal.qiniu.com/" id="baidu" frameborder="0" width="1000" height="500"></iframe>
+<head>
+  <meta charset="utf-8">
+  <title>njhuihuuih</title>
+  <div>
+    <!-- <iframe src="https://console.upyun.com" width="1000" height="500"></iframe>
+    <iframe src="https://www.baidu.com/" id="baidu" frameborder="0" width="1000" height="500"></iframe>
+    <iframe src="https://portal.qiniu.io/cdnboss/" id="baidu" frameborder="0" width="1000" height="500"></iframe> -->
 
-        <iframe name="m" border=0 frameBorder=0 frameSpacing=0 height=902 marginHeight=0 marginWidth=0  noResize scrolling=no src="https://console.upyun.com " width=236 vspale="0" allowtransparency="ture"></iframe>
-    </div>
-  </head>
-  <body>
-    <script type="text/javascript">
+    <!-- <iframe src="https://www.qiniu.com/" id="baidu" frameborder="0" width="1000" height="500"></iframe> -->
+    <iframe src="https://www.faceplusplus.com.cn/" id="ant" frameborder="0" width="1200" height="800"
+      style="border: 0px none; margin-left: -185px; height: 859px; margin-top: -533px; width: 1200px;"></iframe>
 
-      var ifr = document.createElement('iframe')
-      var baiduIfm = document.getElementById('baidu')
-      console.log('./..', baiduIfm)
+    <!-- <iframe name="m" border=0 frameBorder=0 frameSpacing=0 height=902 marginHeight=0 marginWidth=0 noResize scrolling=no
+      src="https://console.upyun.com " width=236 vspale="0" allowtransparency="ture"></iframe> -->
+  </div>
+</head>
 
-    </script>
-  </body>
+<body>
+  <script type="text/javascript">
+    // window.onload = function () {
+    //   let frameElement = document.getElementById("myiFrame");
+    //   let doc = frameElement.contentDocument;
+    //   doc.body.innerHTML = doc.body.innerHTML + '<style>.bar {width:45%;}</style>';
+
+    // var qiniuIfm = document.getElementById('ant')
+    // console.log('./..', qiniuIfm)
+    // let doc = qiniuIfm.contentDocument
+    // console.log('***', doc)
+    // doc.body.innerHTML = doc.head.innerHTML + '<style> .header-container { display: none; color: red; }</style>'
+    // }
+    // console.log('start')
+
+    // var iFrameID = document.getElementById('ant');
+    // console.log('./..', iFrameID)
+    // let doc = iFrameID.contentDocument
+    // let doc2 = iFrameID.contentWindow
+    // console.log('***', doc)
+    // console.log('***<<<', doc2)
+    //  doc.body.innerHTML = doc.head.innerHTML + '<style> .header-container { display: none; color: red; }</style>'
+    //  doc2.document.body.innerHTML = doc2.document.body.innerHTML + '<style> .header-container { display: none; color: red; }</style>'
+
+    // function iframeLoaded() {
+    //   var iFrameID = document.getElementById('ant');
+    //   if (iFrameID) {
+    //     // iFrameID.height = "";
+    //     // iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + "px";
+    //     console.log('./..', qiniuIfm)
+    //     let doc = iFrameID.contentDocument
+    //     let doc2 = iFrameID.contentWindow
+    //     console.log('***', doc)
+    //     console.log('***<<<', doc2)
+    //     // doc.body.innerHTML = doc.head.innerHTML + '<style> .header-container { display: none; color: red; }</style>'
+    //   }
+    // }
+
+    function resizeIFrameToFitContent(iFrame) {
+
+      iFrame.width = iFrame.contentWindow.document.body.scrollWidth;
+      iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
+    }
+
+    window.addEventListener('DOMContentLoaded', function (e) {
+
+      var iFrame = document.getElementById('ant');
+      resizeIFrameToFitContent(iFrame);
+
+      // or, to resize all iframes:
+      var iframes = document.querySelectorAll("iframe");
+      for (var i = 0; i < iframes.length; i++) {
+        let doc = iframes[i].contentDocument
+        doc.body.innerHTML = '<style> .header-container { display: none; color: red; }</style>'
+        console.log('@@@', doc);
+        // resizeIFrameToFitContent(iframes[i]);
+      }
+    });
+  </script>
+</body>
+
 </html>

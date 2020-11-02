@@ -12,6 +12,7 @@
     "babylonjs": "^4.1.0",
     "react": "^16.13.1",
     "react-babylonjs": "^2.2.1",
+    "react-babylonjs-x": "^2.4.0",
     "react-dom": "^16.13.1",
     "react-reconciler": "^0.25.1",
     "react-scripts": "3.4.1"

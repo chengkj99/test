@@ -1,7 +1,9 @@
-import { Engine, Scene } from "react-babylonjs";
-import React from "react";
 import { Vector3 } from "@babylonjs/core";
+import React from "react";
+import { Engine, Scene } from "react-babylonjs";
+import ImportMesh from "../ImportMesh.jsx";
 import "./index.css";
+
 const DefaultPlayground = () => (
   <Engine canvasId="sample-canvas">
     <Scene>
@@ -18,14 +20,14 @@ const DefaultPlayground = () => (
         intensity={0.7}
         direction={Vector3.Up()}
       />
-      <sphere
-        name="sphere11"
-        diameter={2}
-        segments={16}
-        position={new Vector3(0, 1, 0)}
-      />
-
-      <ground name="ground1" width={6} height={6} subdivisions={2} />
+      // <sphere
+      //   name="sphere11"
+      //   diameter={2}
+      //   segments={16}
+      //   position={new Vector3(0, 1, 0)}
+      // />
+      <ImportMesh> </ImportMesh>
+      // <ground name="ground1" width={6} height={6} subdivisions={2} />
     </Scene>
   </Engine>
 );
