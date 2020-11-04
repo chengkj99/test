@@ -33,7 +33,20 @@
 ## 贝壳找房
 
 21. webpack 中 loader 和 plugin 的区别，能否用 loader 实现 plugin 的功能或者反过来
+
+```
+loader，它是一个转换器，将A文件进行编译成B文件，比如：将A.less转换为A.css，单纯的文件转换过程。
+plugin是一个扩展器，它丰富了webpack本身，针对是loader结束后，webpack打包的整个过程，它并不直接操作文件，而是基于事件机制工作，会监听webpack打包过程中的某些节点，执行广泛的任务
+```
 22. webpack 打包速度优化
+```
+1. 减少文件搜索范围
+2. 增加压缩代码插件
+3. 设置缓存
+4. 设置noParse
+* https://www.jeffjade.com/2017/08/12/125-webpack-package-optimization-for-speed/
+* https://juejin.im/post/6844904071736852487
+```
 23. js 原型和原型链的区别和联系
 24. redux 的 connect，高阶组件，自己手动实现一个 connect
 25. 常见的设计模式，自己动手实现一个发布订阅者模式
@@ -99,6 +112,10 @@ react 中 setState 是同步的还是异步的，这个问题可以说是 必问
 1. 如何跨域
 2. 前端路由的实现
 3. 对闭包的理解
+```
+https://juejin.im/post/6844903602268405773
+作用：1.外部作用域读取函数内部作用域的变量 2.让这些变量始终保存在内存中
+```
 4. 盒模型的构成
 5. background 覆盖盒模型的哪几个部分
 6. 垂直居中布局
@@ -317,3 +334,9 @@ Promise.resolve().then(() => {
 4. var urls = [url1, url2, url3]
    实现按顺序发送请求
 5. 套餐组合：有一组数，找出值等于或小于 N 的的组合，个数不限
+
+
+## 小红书
+
+1. 装饰器模式的实现原理
+https://github.com/zz1211/Doraemon/issues/1
