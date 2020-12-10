@@ -41,7 +41,7 @@ var merge = function (nums1, m, nums2, n) {
   let i = 0
   let n1 = 0
   let n2 = 0
-  while (i < m + n - 1) {
+  while (n1 < m && n2 < n) {
     if (nums1[n1] < nums2[n2] && n1 < m) {
       nums1[i] = nums1[n1]
       n1++
@@ -52,6 +52,7 @@ var merge = function (nums1, m, nums2, n) {
       i++
     }
   }
+  // nums1.splice(0, n2 + 1, ...nums2.slice(0, n2 + 1));
   return nums1
 };
 
