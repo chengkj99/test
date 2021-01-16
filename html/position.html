@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      height: 600px;
+      width: 600px;
+    }
+
+    #top {
+      width: 100px;
+      height: 100px;
+      background-color: brown;
+    }
+
+    #app {
+      width: 100px;
+      height: 100px;
+      position: relative;
+      margin: 50px;
+      background-color: aqua;
+      border: 10px solid #ccc;
+    }
+
+    #container {
+      position: ative;
+      background-color: cornflowerblue;
+    }
+
+    #inner {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      left: 100px;
+      background-color: cyan;
+      border: 10px solid #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="top"></div>
+  <div id="app">box</div>
+  <div id="container">
+    <div id='inner'> box2</div>
+  </div>
+</body>
+<script>
+  window.onload = function () {
+    console.log('window.innerHeight, window.innerWidth', window.innerHeight, window.innerWidth);
+
+    console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+
+    let box = document.getElementById('app')
+
+    // clientTop: 获取元素border-top的宽度
+    // clientLeft:获取元素border-left的宽度
+    // clientWidth: 获取元素的宽度，不包含border
+    // clientHeight:获取元素的高度，不包含border
+    // getBoundingClientRect(): 获取与元素尺寸信息有关的对象， 记住这个API，特别好用！！！
+    // 配合 window.innerHeight，onscroll 可以方便的实现 lazy load
+    // top bottom: 获取元素上下边(不考虑 margin)到浏览器窗口上边的距离数值
+    // left right: 获取元素左右边(不考虑 margin)到浏览器窗口左边的距离数值
+    // width height: 元素的宽度和高度(包含 border)
+    // x y : 或元素左顶点到窗口左边和上边的距离(不考虑 margin) 这个属性兼容性不好，不用
+    console.log('clientTop clientLeft clientHeight clientWidth', box.clientTop, box.clientLeft, box.clientHeight, box
+      .clientWidth);
+
+    console.log('getBoundingClientRect', box.getBoundingClientRect());
+
+
+    console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+
+
+
+    /*
+     * offset系列
+     * offsetParent:获取元素的最近position不是static的祖先元素
+     * offsetLeft: **获取元素（包含border）相对于最近position不是static的祖先元素的左边距离（不包含border，包含padding）
+     * offsetTop: **获取元素（包含border）相对于最近position不是static的祖先元素的上边距离（不包含border，包含padding）
+     * offsetWidth: **获取元素的宽度，包含border
+     * offsetHeight: **后去元素的高度，包含border
+     */
+
+    let box2 = document.getElementById('inner')
+
+    console.log('offsetTop offsetLeft offsetHeight offsetWidth', box2.offsetTop, box2.offsetLeft, box2.offsetHeight,
+      box2.offsetWidth);
+
+    console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+
+
+    /**
+     * scroll系列
+     * scrollLeft: **获取左侧卷入不可见区域的宽度
+     * scrollTop: **获取上侧卷入不可见的区域
+     * scrollWidth: **获取的宽度为（内容实际宽度包括卷入的区域+padding部分）与（元素宽度+padding部分）
+     * scrollHeight: **获取的宽度为（内容实际高度包括卷入的区域+padding部分）与（元素高度+padding部分）
+     * window.scrollBy(x,y): ** 窗口相对滚动函数
+     * window.scrollTo(x,y): **窗口绝对滚动函数
+     **/
+
+    console.log('box scrollTop scrollLeft scrollHeight scrollWidth', box.scrollTop, box.scrollLeft, box
+      .scrollHeight, box.scrollWidth)
+
+    console.log('box2 scrollTop scrollLeft scrollHeight scrollWidth', box2.scrollTop, box2.scrollLeft, box2
+      .scrollHeight, box2.scrollWidth)
+
+  }
+</script>
+
+</html>

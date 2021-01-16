@@ -5,6 +5,8 @@
     "redux": "^4.0.5"
   },
   "devDependencies": {
+    "lerna": "^3.22.1",
     "puppeteer": "^1.19.0"
-  }
+  },
+  "name": "test"
 }

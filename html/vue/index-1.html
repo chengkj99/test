@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .mainDiv {
+      position: absolute;
+      height: 500px;
+      width: 100%;
+      border: 3px solid red;
+      border-radius: 10px;
+      margin: 10px;
+    }
+
+    .mainDiv .childDiv {
+      position: absolute;
+      height: 50px;
+      width: 90%;
+      background-color: blue;
+      border: 2px solid;
+      border-radius: 10px;
+      margin: 1px auto;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .mainDiv .moving {
+      border: 1px solid black;
+      background-color: darkmagenta;
+      z-index: 100;
+    }
+
+
+    .test {
+      position: relative;
+      height: 50px;
+      width: auto;
+      background-color: red;
+      border: 2px solid;
+      border-radius: 3px;
+      margin: 1px 0 1px;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+  <div id='app'>
+    <div>
+      <div class="mainDiv" id="columns">
+        <div id="child" v-for="(option,index) in options"
+          :class="{'childDiv': true, 'moving': (flags && targetNode === option)}" :key="index">
+          {{option}}
+        </div>
+        <!-- <div id="test" class="test"
+             @touchstart="down" @touchmove="move" @touchend="end"
+        >什么都没有
+        </div>-->
+      </div>
+    </div>
+
+    targetNode: {{targetNode}}
+  </div>
+
+</body>
+
+<script>
+  var app = new Vue({
+    el: '#app',
+    data() {
+      return {
+        options: ['选项1', '选项2', '选项3', '选项4'],
+        columns: undefined,
+        flags: false,
+        targetNode: null,
+        position: {
+          x: 0,
+          y: 0
+        },
+        nx: '',
+        ny: '',
+        dx: '',
+        dy: '',
+        xPum: '',
+        yPum: '',
+      }
+    },
+    mounted() {
+      this.columns = document.querySelectorAll('#child');
+      let num = 0;
+      for (let i of this.columns) {
+        i.style.top = (i.offsetHeight * num) + 'px';
+        i.addEventListener('touchstart', this.down);
+        i.addEventListener('touchmove', this.move);
+        i.addEventListener('touchend', this.end);
+        num++;
+      }
+    },
+    watch: {
+      flags(value) {
+        console.log('###', value);
+      }
+    },
+    methods: {
+      down(e) {
+        e.preventDefault();
+        this.flags = true;
+        var touch;
+        if (e.touches) {
+          touch = e.touches[0];
+        } else {
+          touch = e;
+        }
+        this.targetNode = e.target.innerText
+        /* touch.clientX clientY  鼠标点击的位置与视图窗口的距离
+         * e.target.offsetLeft offsetTop  鼠标点击的 div 与父元素的边框距离，父元素必须为定位样式，不然认为父元素为body
+         **/
+        this.position.x = touch.clientX;
+        this.position.y = touch.clientY;
+        this.dx = e.target.offsetLeft;
+        this.dy = e.target.offsetTop;
+        console.log('**', e.target.offsetLeft, e.target.offsetTop);
+      },
+      move(e) {
+        if (this.flags) {
+          var touch;
+          if (e.touches) {
+            touch = e.touches[0];
+          } else {
+            touch = e;
+          }
+          this.targetNode = e.target.innerText
+
+          //移动的距离 = 鼠标移动后的 (x, y) - 鼠标初始的位置 （x, y）
+          this.nx = touch.clientX - this.position.x;
+          this.ny = touch.clientY - this.position.y;
+          console.log('nx ny:', this.nx, this.ny);
+
+          // 现在坐标 = 原来的位置（x, y） + 移动的距离（x, y）
+          this.xPum = this.dx + this.nx;
+          this.yPum = this.dy + this.ny;
+          e.target.style.left = this.xPum + 'px';
+          e.target.style.top = this.yPum + 'px';
+
+          this.dataTransferInMove(e)
+        }
+      },
+      end(e) {
+        //处理边界问题
+        let right = e.target.offsetLeft + e.target.offsetWidth;
+        let bottom = e.target.offsetTop + e.target.offsetHeight;
+
+        if (e.target.offsetLeft <= 0 || right >= e.target.offsetParent.offsetWidth) {
+          e.target.style.left = 0 + 'px';
+        }
+        if (e.target.offsetTop <= 0 || bottom >= e.target.offsetParent.offsetHeight) {
+          e.target.style.top = 0 + 'px';
+        }
+        this.dataTransferByData(e);
+        this.flags = false;
+        this.targetNode = null
+      },
+      dataTransfer(e) {
+        let eleTop = e.target.offsetTop + Math.round(e.target.offsetHeight / 2); //找到当前元素的中间位置
+        let arr = Array.from(this.columns); //将 nodelist 转为 array
+        let index = arr.indexOf(e.target); //找到当前元素下标
+        for (let i in arr) {
+          //如果当前元素进入另一个元素的位置
+          if (index == i) {
+            continue
+          }
+          //如果当前元素进入另一个元素的位置，将他们的值互换，位置还原
+          if (eleTop > arr[i].offsetTop && eleTop < (arr[i].offsetTop + arr[i].offsetHeight)) {
+            // index, i 位置互换
+            //值互换，位置还原（保证数组的序列数据不变）
+            const options = [...this.options]
+            let fromValue = options[index]
+            let replaceValue = options.splice(i, 1, fromValue)[0]
+            options[index] = replaceValue
+            this.options = [...options]
+          }
+        }
+      },
+      dataTransferInMove(e) {
+        let eleTop = e.target.offsetTop + Math.round(e.target.offsetHeight / 2); //找到当前元素的中间位置
+        let arr = Array.from(this.columns); //将nodelist转为array
+        let index = arr.indexOf(e.target); //找到当前元素下标
+        for (let i in arr) {
+
+          if (index == i) {
+            continue
+          }
+          //如果当前元素进入另一个元素的位置，将他们的值互换，位置还原
+          if (eleTop > arr[i].offsetTop && eleTop < (arr[i].offsetTop + arr[i].offsetHeight)) {
+            //值互换，位置还原（保证数组的序列数据不变）
+            const options = [...this.options]
+            let fromValue = options[index]
+            let replaceValue = options.splice(i, 1, fromValue)[0]
+            options[index] = replaceValue
+            this.options = [...options]
+          }
+        }
+        let num = 0;
+        for (let i of this.columns) {
+          i.style.top = (i.offsetHeight * num) + 'px';
+          num++;
+        }
+      },
+      dataTransferByData(e) {
+        let eleTop = e.target.offsetTop + Math.round(e.target.offsetHeight / 2); //找到当前元素的中间位置
+        let arr = Array.from(this.columns); //将nodelist转为array
+        let index = arr.indexOf(e.target); //找到当前元素下标
+        for (let i in arr) {
+
+          if (index == i) {
+            continue
+          }
+          //如果当前元素进入另一个元素的位置，将他们的值互换，位置还原
+          if (eleTop > arr[i].offsetTop && eleTop < (arr[i].offsetTop + arr[i].offsetHeight)) {
+            //值互换，位置还原（保证数组的序列数据不变）
+            const options = [...this.options]
+            let fromValue = options[index]
+            let replaceValue = options.splice(i, 1, fromValue)[0]
+            options[index] = replaceValue
+            this.options = [...options]
+          }
+        }
+        let num = 0;
+        for (let i of this.columns) {
+          i.style.top = (i.offsetHeight * num) + 'px';
+          num++;
+        }
+      }
+    }
+
+  })
+</script>
+
+</html>
