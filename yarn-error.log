@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.10/libexec/bin/yarn.js add koa
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.10/libexec/bin/yarn.js add babel-preset-env --dev
 
 PATH: 
-  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
+  /usr/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 
 Yarn version: 
   1.22.10
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: http://10.199.0.93:4873/extract-zip/-/extract-zip-1.7.0.tgz: ETIMEDOUT
+  Error: http://10.199.0.93:4873/proxy-from-env/-/proxy-from-env-1.1.0.tgz: ETIMEDOUT
       at Timeout._onTimeout (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:141409:19)
       at ontimeout (timers.js:475:11)
       at tryOnTimeout (timers.js:310:5)
