@@ -29,4 +29,6 @@
 //   }));
 // });
 
-console.log("after a !!!", a);
+// console.log("after a !!!", a);
+
+console.log('###', global.globalThis)
