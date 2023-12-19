@@ -35,3 +35,4 @@ console.log(lengthOfLongestSubstring('dvdf'))
 // 外层for循环用i控制每一个起始点
 // 里面的while rk 指针控制每一个终止点
 // 每次 while循环后，计算长度
+// 为什么要 occ.delete(s.charAt(i - 1))？为了保证左指针和右指针组成滑动窗口，不被左指针更左侧的值影响。
