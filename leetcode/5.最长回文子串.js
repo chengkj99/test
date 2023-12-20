@@ -61,3 +61,9 @@ function longestPalindrome(s) {
 //   console.log(longestPalindrome("cbbd"));  // 输出："bb"
 // @lc code=end
 
+// 中心扩展法
+// expandAroundCenter: 循环以每一个字符为中心向两边扩展
+// 计算最长的回文长度
+
+
+
