@@ -72,4 +72,3 @@ console.log(findMedianSortedArrays([], [2,3]))
 // 把数组合并
 // 计算数组总长度是偶数还是奇数，计算中位数
 // 然后找到中间值
-// 第一次
