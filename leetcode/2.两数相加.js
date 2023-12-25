@@ -65,7 +65,4 @@ var addTwoNumbers = function (l1, l2) {
 
 // 此外，如果链表遍历结束后，有 carry>0\textit{carry} > 0carry>0，还需要在答案链表的后面附加一个节点，节点的值为 carry\textit{carry}carry。
 
-// 作者：力扣官方题解
-// 链接：https://leetcode.cn/problems/add-two-numbers/solutions/435246/liang-shu-xiang-jia-by-leetcode-solution/
-// 来源：力扣（LeetCode）
-// 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+// 它教会了我们在解决问题时要善于分解和处理复杂的情况。类似于这道题，我们需要将两个数的相加过程分解成逐位相加、进位等步骤，然后再将它们组合起来得到最终的结果
