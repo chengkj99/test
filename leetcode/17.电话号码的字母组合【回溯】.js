@@ -17,10 +17,6 @@
  * 
  * 给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
  * 
- * 
- * 
- * 
- * 
  * 示例 1：
  * 
  * 
@@ -114,6 +110,5 @@ var letterCombinations = function(digits) {
 console.log(letterCombinations("78")); // 输出：["ad","ae","af","bd","be","bf","cd","ce","cf"]
 // console.log(letterCombinations(""));   // 输出：[]
 // console.log(letterCombinations("2"));   // 输出：["a","b","c"]
-
 // @lc code=end
 
